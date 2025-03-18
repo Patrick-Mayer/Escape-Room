@@ -1,0 +1,74 @@
+[gd_scene load_steps=15 format=3 uid="uid://bg0atbfl20bdt"]
+
+[ext_resource type="Script" uid="uid://bfs0dgt30arle" path="res://Scripts/Main.cs" id="1_a22an"]
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_1q67n"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="2_h1khe"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="3_1q67n"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_bl2xt"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_ao84u"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_ao84u"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_r6vcu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao84u"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gs4yv"]
+material = SubResource("StandardMaterial3D_ao84u")
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6vcu"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_a22an"]
+
+[sub_resource type="Sky" id="Sky_vbwdf"]
+sky_material = SubResource("PhysicalSkyMaterial_a22an")
+
+[sub_resource type="Environment" id="Environment_a22an"]
+background_mode = 2
+sky = SubResource("Sky_vbwdf")
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_a22an")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03617, 0)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0577769, 0)
+
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("2_1q67n")]
+
+[node name="LeftHandController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="LeftHand" parent="XROrigin3D/LeftHandController" instance=ExtResource("2_h1khe")]
+
+[node name="FunctionTeleport2" parent="XROrigin3D/LeftHandController" instance=ExtResource("4_bl2xt")]
+
+[node name="RightHandController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="RightHand" parent="XROrigin3D/RightHandController" instance=ExtResource("3_1q67n")]
+
+[node name="MovementDirect" parent="XROrigin3D/RightHandController" instance=ExtResource("6_ao84u")]
+
+[node name="MovementTurn2" parent="XROrigin3D/RightHandController" instance=ExtResource("8_ao84u")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("8_r6vcu")]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0631127, 0)
+mesh = SubResource("PlaneMesh_gs4yv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(9.836, 0, 0, 0, 1, 0, 0, 0, 9.63343, 0, -0.465648, 0)
+shape = SubResource("BoxShape3D_r6vcu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a22an")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.854867, 0.518848, 0, -0.518848, 0.854867, 0, 4.98822, 6.66957)
