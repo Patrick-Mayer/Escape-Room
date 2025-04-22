@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://bg0atbfl20bdt"]
+[gd_scene load_steps=19 format=3 uid="uid://bg0atbfl20bdt"]
 
 [ext_resource type="Script" uid="uid://bfs0dgt30arle" path="res://Scripts/Main.cs" id="1_a22an"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_1q67n"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="2_h1khe"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="3_1q67n"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_bl2xt"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_6hska"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_ao84u"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_ao84u"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_r6vcu"]
+[ext_resource type="PackedScene" uid="uid://bp8lbm1stctif" path="res://Prefabs/cube.tscn" id="9_r6vcu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao84u"]
 
@@ -25,6 +27,10 @@ sky_material = SubResource("PhysicalSkyMaterial_a22an")
 [sub_resource type="Environment" id="Environment_a22an"]
 background_mode = 2
 sky = SubResource("Sky_vbwdf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ao84u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ao84u"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_a22an")
@@ -45,6 +51,8 @@ pose = &"aim"
 
 [node name="FunctionTeleport2" parent="XROrigin3D/LeftHandController" instance=ExtResource("4_bl2xt")]
 
+[node name="FunctionPickup" parent="XROrigin3D/LeftHandController" instance=ExtResource("5_6hska")]
+
 [node name="RightHandController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
 pose = &"aim"
@@ -54,6 +62,8 @@ pose = &"aim"
 [node name="MovementDirect" parent="XROrigin3D/RightHandController" instance=ExtResource("6_ao84u")]
 
 [node name="MovementTurn2" parent="XROrigin3D/RightHandController" instance=ExtResource("8_ao84u")]
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHandController" instance=ExtResource("5_6hska")]
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("8_r6vcu")]
 
@@ -72,3 +82,29 @@ environment = SubResource("Environment_a22an")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.854867, 0.518848, 0, -0.518848, 0.854867, 0, 4.98822, 6.66957)
+
+[node name="Table" type="Node3D" parent="."]
+transform = Transform3D(2.14936, 0, 0, 0, 0.494989, 0, 0, 0, 0.999568, 1.98612, 0.282788, -0.873746)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/RigidBody3D"]
+shape = SubResource("BoxShape3D_ao84u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table/RigidBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_ao84u")
+
+[node name="Cube" parent="." instance=ExtResource("9_r6vcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65466, 0.633245, -0.513796)
+
+[node name="Cube2" parent="." instance=ExtResource("9_r6vcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86411, 0.633245, -0.513796)
+
+[node name="Cube3" parent="." instance=ExtResource("9_r6vcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07686, 0.643818, -0.519214)
+
+[node name="Cube4" parent="." instance=ExtResource("9_r6vcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34004, 0.643818, -0.519214)
+
+[node name="Cube5" parent="." instance=ExtResource("9_r6vcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)

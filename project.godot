@@ -28,6 +28,14 @@ project/assembly_name="EscapeRoom"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[layer_names]
+
+3d_physics/layer_1="STATIC_WORLD"
+3d_physics/layer_2="DYNAMIC_WORLD"
+3d_physics/layer_3="OBJECT"
+3d_physics/layer_4="HELD_OBJECT"
+3d_physics/layer_5="PLAYER_BODY"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
