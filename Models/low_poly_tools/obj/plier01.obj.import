@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6o2b05fow5uk"
+path="res://.godot/imported/plier01.obj-39ebf548bccc6679f038fec86232ebff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plier01.obj-39ebf548bccc6679f038fec86232ebff.mesh"]
+
+source_file="res://Models/low_poly_tools/obj/plier01.obj"
+dest_files=["res://.godot/imported/plier01.obj-39ebf548bccc6679f038fec86232ebff.mesh", "res://.godot/imported/plier01.obj-39ebf548bccc6679f038fec86232ebff.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

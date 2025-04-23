@@ -13,12 +13,15 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="BoxMesh" id="BoxMesh_8gdkg"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ef8c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufvry"]
+cull_mode = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 0.156863, 1)
+grow = true
+grow_amount = 0.002
 
 [sub_resource type="BoxMesh" id="BoxMesh_1p5eq"]
-material = SubResource("StandardMaterial3D_2ef8c")
+material = SubResource("StandardMaterial3D_ufvry")
 flip_faces = true
 size = Vector3(0.11, 0.11, 0.11)
 

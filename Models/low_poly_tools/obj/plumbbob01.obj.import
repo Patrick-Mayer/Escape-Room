@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://r4co66dhsj1c"
+path="res://.godot/imported/plumbbob01.obj-9fd19d1c17a60cf90df4d8acd871e4df.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plumbbob01.obj-9fd19d1c17a60cf90df4d8acd871e4df.mesh"]
+
+source_file="res://Models/low_poly_tools/obj/plumbbob01.obj"
+dest_files=["res://.godot/imported/plumbbob01.obj-9fd19d1c17a60cf90df4d8acd871e4df.mesh", "res://.godot/imported/plumbbob01.obj-9fd19d1c17a60cf90df4d8acd871e4df.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

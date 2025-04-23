@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bg0atbfl20bdt"]
+[gd_scene load_steps=21 format=3 uid="uid://bg0atbfl20bdt"]
 
 [ext_resource type="Script" uid="uid://bfs0dgt30arle" path="res://Scripts/Main.cs" id="1_a22an"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_1q67n"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_ao84u"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_r6vcu"]
 [ext_resource type="PackedScene" uid="uid://bp8lbm1stctif" path="res://Prefabs/cube.tscn" id="9_r6vcu"]
+[ext_resource type="PackedScene" uid="uid://c8pahmn5xov5y" path="res://Prefabs/tool_board.tscn" id="10_qjlnc"]
+[ext_resource type="PackedScene" uid="uid://dwb0yp3pdgul3" path="res://Prefabs/throwable_axe.tscn" id="11_2lumg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao84u"]
 
@@ -87,12 +89,19 @@ transform = Transform3D(1, 0, 0, 0, 0.854867, 0.518848, 0, -0.518848, 0.854867, 
 transform = Transform3D(2.14936, 0, 0, 0, 0.494989, 0, 0, 0, 0.999568, 1.98612, 0.282788, -0.873746)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Table"]
+mass = 1000.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/RigidBody3D"]
 shape = SubResource("BoxShape3D_ao84u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Table/RigidBody3D/CollisionShape3D"]
 mesh = SubResource("BoxMesh_ao84u")
+
+[node name="ToolBoard" parent="Table" instance=ExtResource("10_qjlnc")]
+transform = Transform3D(0.719452, 0, -0.814907, 0, 2.965, 0, 0.532366, 0, 1.10128, 0.302164, 0.77, 0.0643502)
+
+[node name="ThrowableAxe" parent="Table/ToolBoard" instance=ExtResource("11_2lumg")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, 0, 0, 1, -0.297518, 0.47361, 0.147132)
 
 [node name="Cube" parent="." instance=ExtResource("9_r6vcu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65466, 0.633245, -0.513796)
