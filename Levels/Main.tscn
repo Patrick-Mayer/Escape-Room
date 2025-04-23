@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bg0atbfl20bdt"]
+[gd_scene load_steps=22 format=3 uid="uid://bg0atbfl20bdt"]
 
 [ext_resource type="Script" uid="uid://bfs0dgt30arle" path="res://Scripts/Main.cs" id="1_a22an"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_1q67n"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bp8lbm1stctif" path="res://Prefabs/cube.tscn" id="9_r6vcu"]
 [ext_resource type="PackedScene" uid="uid://c8pahmn5xov5y" path="res://Prefabs/tool_board.tscn" id="10_qjlnc"]
 [ext_resource type="PackedScene" uid="uid://dwb0yp3pdgul3" path="res://Prefabs/throwable_axe.tscn" id="11_2lumg"]
+[ext_resource type="PackedScene" uid="uid://c1nt5d31iq6nv" path="res://Prefabs/pistol.tscn" id="13_r7fn1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao84u"]
 
@@ -103,12 +104,6 @@ transform = Transform3D(0.719452, 0, -0.814907, 0, 2.965, 0, 0.532366, 0, 1.1012
 [node name="ThrowableAxe" parent="Table/ToolBoard" instance=ExtResource("11_2lumg")]
 transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, 0, 0, 1, -0.297518, 0.47361, 0.147132)
 
-[node name="Cube" parent="." instance=ExtResource("9_r6vcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65466, 0.633245, -0.513796)
-
-[node name="Cube2" parent="." instance=ExtResource("9_r6vcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86411, 0.633245, -0.513796)
-
 [node name="Cube3" parent="." instance=ExtResource("9_r6vcu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07686, 0.643818, -0.519214)
 
@@ -117,3 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34004, 0.643818, -0.519214)
 
 [node name="Cube5" parent="." instance=ExtResource("9_r6vcu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
+
+[node name="Pistol" parent="." instance=ExtResource("13_r7fn1")]
+transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.34287, 0.566989, -0.905999)

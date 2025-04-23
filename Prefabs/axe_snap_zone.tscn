@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://caxxc3dpdip3l"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_13ikn"]
+[ext_resource type="PackedScene" uid="uid://73gh0wadqi3e" path="res://Models/low_poly_tools/gltf/axe01.gltf" id="2_ru0o8"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="3_c74bc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wv3l8"]
+resource_local_to_scene = true
+radius = 0.3
+
+[node name="AxeSnapZone" instance=ExtResource("1_13ikn")]
+snap_mode = 1
+snap_require = "AXE"
+
+[node name="axe01" parent="." index="0" instance=ExtResource("2_ru0o8")]
+transform = Transform3D(0.01, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, -0.35, 0)
+
+[node name="Cylinder" parent="axe01" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128073, 5.96046e-08, -0.000699639)
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("SphereShape3D_wv3l8")
+
+[node name="HighlightRing" parent="." index="3" instance=ExtResource("3_c74bc")]
+
+[editable path="axe01"]

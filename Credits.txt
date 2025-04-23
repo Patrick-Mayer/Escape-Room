@@ -1,2 +1,5 @@
 Axe Model:
 https://opengameart.org/content/low-poly-tools
+
+Pistol Model:
+https://opengameart.org/content/lowpoly-pistol

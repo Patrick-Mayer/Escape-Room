@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://kurwdxkvisrf"]
+
+[ext_resource type="Texture2D" uid="uid://b4gk6uogp5dk7" path="res://Models/pistol/Texture/PaletteAtlas.png" id="1_ooa6c"]
+
+[resource]
+resource_name = "M_PaletteAtlas"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("1_ooa6c")
+emission_enabled = true

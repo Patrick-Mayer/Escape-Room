@@ -31,6 +31,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 [global_group]
 
 AXE=""
+PISTOL=""
 
 [layer_names]
 
