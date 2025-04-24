@@ -3,3 +3,12 @@ https://opengameart.org/content/low-poly-tools
 
 Pistol Model:
 https://opengameart.org/content/lowpoly-pistol
+
+Pistol Shoot SFX:
+https://pixabay.com/sound-effects/pistol-shot-233473/
+
+Muzzle Flash:
+https://freegamearts.tuxfamily.org/fga-item.php?sort=name&filter=all&search=muzzleflash&name=Muzzleflash
+
+Empty Click SFX
+https://pixabay.com/sound-effects/empty-gun-shot-6209/

@@ -120,6 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
 
 [node name="Pistol" parent="." instance=ExtResource("13_r7fn1")]
 transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.63945, 0.688345, -0.905999)
+magazinePrefab = null
 
 [node name="Target" type="CharacterBody3D" parent="."]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -8.01161, 0.631091, -4.58022)

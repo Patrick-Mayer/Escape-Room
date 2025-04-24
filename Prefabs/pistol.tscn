@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c1nt5d31iq6nv"]
+[gd_scene load_steps=15 format=4 uid="uid://c1nt5d31iq6nv"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p444w"]
 [ext_resource type="Script" uid="uid://clbb5bijmg5uj" path="res://Scripts/Gun.gd" id="2_p0ord"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b7k5l468m237e" path="res://Prefabs/casing.tscn" id="3_klsyw"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_p0ord"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_klsyw"]
+[ext_resource type="PackedScene" uid="uid://cjccaduy51ttg" path="res://Prefabs/pistol_magazine.tscn" id="4_ucoup"]
 [ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="5_ucoup"]
 [ext_resource type="Script" uid="uid://d1kslx11fj5f2" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="6_yexf5"]
+[ext_resource type="AudioStream" uid="uid://cr6am0liaeoi5" path="res://Audio/SFX/PistolShootSFX.mp3" id="9_klsyw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr7up"]
 size = Vector3(0.244873, 1.48427, 2.10754)
@@ -53,9 +55,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uu7p8")
 
-[node name="Pistol" groups=["PISTOL"] instance=ExtResource("1_p444w")]
+[node name="Pistol" node_paths=PackedStringArray("animator", "shootSFX", "clickSFX") groups=["PISTOL"] instance=ExtResource("1_p444w")]
 script = ExtResource("2_p0ord")
 casingPrefab = ExtResource("3_klsyw")
+magazinePrefab = ExtResource("4_ucoup")
+animator = NodePath("AnimationPlayer")
+shootSFX = NodePath("BulletSpawn/ShootSFX")
+clickSFX = NodePath("BulletSpawn/EmptySFX")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000988768, 0.0717613, 0.0749573)
@@ -67,10 +73,10 @@ shape = SubResource("BoxShape3D_lr7up")
 transform = Transform3D(0.733623, 0.679557, 0, -0.679557, 0.733623, 0, 0, 0, 1, 0.0234394, 0.0279298, 0.00411215)
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_p0ord")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000709623, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0785689, 0, 0)
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("4_klsyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0206614, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0180384, 0.033244, 0)
 
 [node name="GrabPointSnap" parent="." index="4" instance=ExtResource("5_ucoup")]
 
@@ -81,5 +87,18 @@ metadata/_custom_type_script = "uid://d1kslx11fj5f2"
 [node name="HighlightMesh" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00103015, 0.0519315, 0.0103227)
 mesh = SubResource("ArrayMesh_6tltp")
+
+[node name="BulletSpawn" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00224501, 0.13223, 0.193343)
+
+[node name="ShootSFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="0"]
+stream = ExtResource("9_klsyw")
+
+[node name="EmptySFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="1"]
+stream = ExtResource("9_klsyw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpawn" index="2"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 
 [editable path="Pistol"]
