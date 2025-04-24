@@ -33,6 +33,12 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 AXE=""
 PISTOL=""
 
+[importer_defaults]
+
+animation_library={
+&"animation/fps": 60.0
+}
+
 [layer_names]
 
 3d_physics/layer_1="STATIC_WORLD"
