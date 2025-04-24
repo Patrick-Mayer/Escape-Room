@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c8pahmn5xov5y" path="res://Prefabs/tool_board.tscn" id="10_qjlnc"]
 [ext_resource type="PackedScene" uid="uid://dwb0yp3pdgul3" path="res://Prefabs/throwable_axe.tscn" id="11_2lumg"]
 [ext_resource type="PackedScene" uid="uid://c1nt5d31iq6nv" path="res://Prefabs/pistol.tscn" id="13_r7fn1"]
+[ext_resource type="Script" uid="uid://i5wyevm0ah12" path="res://Scripts/Target.gd" id="11_2lumg"]
+[ext_resource type="PackedScene" uid="uid://bkcabw3dsa5mp" path="res://Assets/targetA.glb" id="12_r7fn1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao84u"]
 
@@ -34,6 +36,9 @@ sky = SubResource("Sky_vbwdf")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ao84u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ao84u"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ys0u"]
+height = 0.2
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_a22an")
@@ -115,3 +120,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
 
 [node name="Pistol" parent="." instance=ExtResource("13_r7fn1")]
 transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.34287, 0.566989, -0.905999)
+
+[node name="Target" type="CharacterBody3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -8.01161, 0.631091, -4.58022)
+script = ExtResource("11_2lumg")
+
+[node name="targetA3" parent="Target" instance=ExtResource("12_r7fn1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
+transform = Transform3D(-1.5299e-08, -0.35, 0, 0.35, -1.5299e-08, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("CylinderShape3D_7ys0u")

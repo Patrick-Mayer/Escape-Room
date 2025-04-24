@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbqmup5avymev"]
+
+[ext_resource type="Script" uid="uid://w3jp8akihevq" path="res://Scripts/Level.gd" id="1_fy36t"]
+[ext_resource type="Script" uid="uid://i5wyevm0ah12" path="res://Scripts/Target.gd" id="1_i4kf4"]
+[ext_resource type="PackedScene" uid="uid://bkcabw3dsa5mp" path="res://Assets/targetA.glb" id="2_fy36t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rkfy3"]
+sky_top_color = Color(0.321569, 0.584314, 0.745098, 1)
+sky_horizon_color = Color(0.630392, 0.688235, 0.719608, 1)
+ground_bottom_color = Color(0.2, 0.168627, 0.133333, 1)
+ground_horizon_color = Color(0.630392, 0.688235, 0.719608, 1)
+
+[sub_resource type="Sky" id="Sky_8eqva"]
+sky_material = SubResource("ProceduralSkyMaterial_rkfy3")
+
+[sub_resource type="Environment" id="Environment_xmxcl"]
+background_mode = 2
+sky = SubResource("Sky_8eqva")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a0i28"]
+height = 0.2
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_fy36t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xmxcl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_color = Color(1, 1, 0.85098, 1)
+shadow_enabled = true
+
+[node name="Target" type="CharacterBody3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -9.87572, 3.44716, 9.07433)
+script = ExtResource("1_i4kf4")
+
+[node name="targetA3" parent="Target" instance=ExtResource("2_fy36t")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
+transform = Transform3D(-1.5299e-08, -0.35, 0, 0.35, -1.5299e-08, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("CylinderShape3D_a0i28")

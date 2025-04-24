@@ -1,7 +1,8 @@
 extends Node
 
-var timer: int = 0
-var shots: int = 0
-var hits: int = 0
-var lvl_current: int = 0
-var lvl_cleared: int = 0
+static var timer: int = 0
+static var shots: int = 0
+static var hits: int = 0
+static var lvl_current: int = 0
+static var lvl_cleared: int = 0
+static var score: int = 0

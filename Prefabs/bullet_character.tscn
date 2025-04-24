@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnkxqxpr6jxry"]
+
+[ext_resource type="Script" uid="uid://i8mphpj5u54y" path="res://Scripts/bullet_character.gd" id="1_7rqp8"]
+
+[sub_resource type="Resource" id="Resource_p8rao"]
+metadata/__load_path__ = "res://Scenes/decal.tscn"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ber36"]
+albedo_color = Color(0.823529, 0, 0.67451, 1)
+emission_enabled = true
+emission = Color(0.823529, 0, 0.67451, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mfb2r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8wkle"]
+
+[node name="BulletCharBody" type="CharacterBody3D"]
+script = ExtResource("1_7rqp8")
+bullet_hole_decal = SubResource("Resource_p8rao")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ber36")
+mesh = SubResource("CylinderMesh_mfb2r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_8wkle")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
