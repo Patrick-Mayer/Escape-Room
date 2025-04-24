@@ -5,7 +5,8 @@ extends Node3D
 signal hit
 
 func _ready():
-	$Area3D.connect("area_entered", self, "_on_area_entered")
+	pass;
+	#$Area3D.connect("area_entered", self, "_on_area_entered")
 
 func _on_area_entered(area):
 	if area.name.begins_with("Bullet"):
