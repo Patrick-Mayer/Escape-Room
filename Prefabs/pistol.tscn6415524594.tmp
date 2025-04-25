@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b7k5l468m237e" path="res://Prefabs/casing.tscn" id="3_klsyw"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_p0ord"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_klsyw"]
+[ext_resource type="PackedScene" uid="uid://cjccaduy51ttg" path="res://Prefabs/pistol_magazine.tscn" id="4_ucoup"]
 [ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="5_ucoup"]
-[ext_resource type="PackedScene" uid="uid://c8nmp4c1kld3q" path="res://Prefabs/pistol_bullet.tscn" id="5_yexf5"]
+[ext_resource type="PackedScene" path="res://Prefabs/bullet.tscn" id="5_yexf5"]
 [ext_resource type="Script" uid="uid://d1kslx11fj5f2" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="6_yexf5"]
 [ext_resource type="AudioStream" uid="uid://cr6am0liaeoi5" path="res://Audio/SFX/PistolShootSFX.mp3" id="9_klsyw"]
-[ext_resource type="AudioStream" uid="uid://crim4j7qdab5m" path="res://Audio/SFX/EmptySFX.mp3" id="11_yexf5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr7up"]
 size = Vector3(0.244873, 1.48427, 2.10754)
@@ -137,6 +137,7 @@ _data = {
 [node name="Pistol" node_paths=PackedStringArray("animator", "shootSFX", "clickSFX") groups=["PISTOL"] instance=ExtResource("1_p444w")]
 script = ExtResource("2_p0ord")
 casingPrefab = ExtResource("3_klsyw")
+magazinePrefab = ExtResource("4_ucoup")
 bulletPrefab = ExtResource("5_yexf5")
 animator = NodePath("AnimationPlayer")
 shootSFX = NodePath("BulletSpawn/ShootSFX")
@@ -147,9 +148,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000988768, 0.0717613
 shape = SubResource("BoxShape3D_lr7up")
 
 [node name="Pistol" parent="." index="1" instance=ExtResource("2_welo6")]
-
-[node name="slide" parent="Pistol/Pistol" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000184433, 0.0780441, 0.0573408)
 
 [node name="CasingSpawn" type="Node3D" parent="Pistol/Pistol/slide" index="1"]
 transform = Transform3D(0.733623, 0.679557, 0, -0.679557, 0.733623, 0, 0, 0, 1, 0.0234394, 0.0279298, 0.00411215)
@@ -176,10 +174,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00224501, 0.13223, 0.193343
 
 [node name="ShootSFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="0"]
 stream = ExtResource("9_klsyw")
-volume_db = -59.099
 
 [node name="EmptySFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="1"]
-stream = ExtResource("11_yexf5")
+stream = ExtResource("9_klsyw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpawn" index="2"]
 

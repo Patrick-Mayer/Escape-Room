@@ -1,43 +1,7 @@
-[gd_scene load_steps=43 format=4 uid="uid://bg0atbfl20bdt"]
+[gd_scene load_steps=18 format=4 uid="uid://c8nmp4c1kld3q"]
 
-[ext_resource type="Script" uid="uid://bfs0dgt30arle" path="res://Scripts/Main.cs" id="1_a22an"]
-[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_1q67n"]
-[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="2_h1khe"]
-[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="3_1q67n"]
-[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="4_bl2xt"]
-[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_6hska"]
-[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_ao84u"]
-[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_ao84u"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_r6vcu"]
-[ext_resource type="PackedScene" uid="uid://bp8lbm1stctif" path="res://Prefabs/cube.tscn" id="9_r6vcu"]
-[ext_resource type="PackedScene" uid="uid://c8pahmn5xov5y" path="res://Prefabs/tool_board.tscn" id="10_qjlnc"]
-[ext_resource type="PackedScene" uid="uid://dwb0yp3pdgul3" path="res://Prefabs/throwable_axe.tscn" id="11_2lumg"]
-[ext_resource type="PackedScene" uid="uid://bkcabw3dsa5mp" path="res://Assets/targetA.glb" id="12_r7fn1"]
-[ext_resource type="PackedScene" uid="uid://c1nt5d31iq6nv" path="res://Prefabs/pistol.tscn" id="13_r7fn1"]
-[ext_resource type="Script" uid="uid://ddpynlqrak5qv" path="res://casing.gd" id="14_1v84g"]
-[ext_resource type="Script" uid="uid://i5wyevm0ah12" path="res://Scripts/Target.gd" id="14_cffj3"]
-[ext_resource type="Material" uid="uid://kurwdxkvisrf" path="res://Models/pistol/Model/M_PaletteAtlas.tres" id="15_3ff0h"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao84u"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_gs4yv"]
-material = SubResource("StandardMaterial3D_ao84u")
-size = Vector2(10, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_r6vcu"]
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_a22an"]
-
-[sub_resource type="Sky" id="Sky_vbwdf"]
-sky_material = SubResource("PhysicalSkyMaterial_a22an")
-
-[sub_resource type="Environment" id="Environment_a22an"]
-background_mode = 2
-sky = SubResource("Sky_vbwdf")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ao84u"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ao84u"]
+[ext_resource type="Script" uid="uid://dcminb2ls8c0l" path="res://Scripts/Bullet.gd" id="1_o0rrd"]
+[ext_resource type="Material" uid="uid://kurwdxkvisrf" path="res://Models/pistol/Model/M_PaletteAtlas.tres" id="2_hij1l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_uu7p8"]
 _surfaces = [{
@@ -63,7 +27,7 @@ _surfaces = [{
 "index_count": 1182,
 "index_data": PackedByteArray("VgFXAVgBWAFZAVYBVwFWAQMAAwBaAVcBVwFaAQEAAQBbAVcBWAFXAVsBAABZAVgBWwFcAVgBWAFdAQAAWAFcAQIAAgBdAVgBBAAFAF4BXgEGAAQAXwFgAQkAYQEJAGABYAEIAGEBCQBiAV8BXwFiAWMBYwFkAV8BZAFjAWUBZQFmAWQBZwFmAWUBZQFoAWcBZwFoAQoACgAHAGcBaQEHAAoACgBqAWkBaQFqAWsBawFsAWkBbAFrAW0BbQFuAWwBbgFtAQsACwAMAG4BDAALAG8BbwFwAQwAFAASABMAFQASABQAcQETABIAEwBxAQ0AEgAQAHEBcQEQAHIBcgEQABEAEQAOAHIBOgA8AHMBcwF0AToAdQF0AXMBcwF2AXUBdwF1AXYBdgF4AXcBeQF3AXgBeAF6AXkBOQB5AXoBegE7ADkAewF8AX0BfQF+AXsBfgF9AWgAaABpAH4BfAF7AX8BfwGAAXwBZwCAAX8BfwFmAGcAJQAmACcAKAAmACUAJgApACcAJQAqACgAKwAnACkALAAnACsAKwAtACwAKQAuACsALgApAC8ALwAwAC4AMQAvACgAMQAwAC8AMQAoACoAMQAyADAAMgAxADMAMwA0ADIAMQAqADUANgA1ACoANwA1ADYANgA4ADcAgQGCAT8APwBAAIEBPgCCAYEBgQE9AD4AQQBCAEMAQwBCAEQAQwBFAEEARgBBAEUARQBDAEcARwBIAEUASABHAEkASQBHAEoASQBLAEgASABLAEwAgwGEAU8ATwBNAIMBhAGDAVAAUQBOAIQBUABRAIQBUABSAFEAUABTAFIAVABTAFAAVQBUAFAAhQGGAXMAcgCGAYUBcwBuAIUBhQFxAHIAhwGFAW4AcQCFAYcBbgBvAIcBhwFwAHEAWABWAIgBiAGJAVgAiQGIAVkAWQBXAIkBVwBZAFoAWgBbAFcAWwBaAFwAXABdAFsAXgBfAIoBigFfAGAAYQBgAF8AXwBiAGEAXgCKAWMAXgBjAGQAZABlAF4AiwGMAfoA+gD3AIsB+QCMAYsBiwH4APkAHgAgAB8AHwAgACEAIQAPAB8AHwAcAB4AjQEeABwAjgGNARwAHACPAY4BkAGOAY8BkAGPAZEBkQGSAZABkgGRARkAGQCTAZIBGACTARkAGQAXABgAlAEYABcAFwCVAZQBlgGUAZUBlQEWAJYBFgCXAZYBIgCXARYADwCXASIAIgAfAA8AIgAWACMAIwAkACIAagBrAGwAbABtAGoAdAB1AHYAdAB3AHUAdAB2AHgAmAEaAJkBmQGaAZgBmgGZAZsBmwGcAZoBnQGcAZsBmwEbAJ0BngGdARsAGwAdAJ4BeQB6AHsAewB8AHkAfQB+AH8AfwCAAH0AgQCCAIMAgwCEAIEAhQCGAIcAhwCIAIUAiQCKAIsAiwCMAIkAjQCOAI8AjwCQAI0AkQCSAJMAkwCUAJEAnwGXAJUAlQCgAZ8BnwGgAZYAlgCYAJ8BmgChAaIBogGZAJoAogGhAaMBowGcAKIBnQCcAKMBowGbAJ0AngCfAKAAoAChAJ4AogCjAKQApAClAKIApgCnAKgAqACpAKYAqgCrAKwArACtAKoArgCvALAAsACxAK4AsgCzALQAtAC1ALIAugCkAbgAuAClAboAvAC4AKQBtgClAbgApAG9ALwAtwClAbYAuQC8AL0ApgG3ALYApgG2ALkAuQC7AKYBvQC7ALkAvgC/AMAAwADBAL4AwgDDAMQAxADFAMIAxgDHAMgAyADJAMYAzADKAKcBpwHLAMwAqAGpAc4AqgGpAagBzgCrAagBqwHOAKwBrAHPAKsBqAGtAaoBrgGqAa0BrQGvAa4BrgGvAbABsAGxAa4BzQCxAbABsAHQAM0AzQDQALIBsgGzAc0AtAGzAbIBsgG1AbQBtgG0AbUBtQG3AbYB0QC2AbcBtwHTANEAuAHRANMA0wC5AbgB1wDaANgA1wDbANoA1wDYALoBugHYANkAugHWANcA1gC6AbsB1QDWALsBuwHUANUAvAG9Ab4BvQG8Ab8BvgHAAbwBwAG+AcEBwQHCAcABvwHDAb0BwwG/AfMA8wD0AMMBxAHFAcYBxQHEAesA6wDsAMUBxgHHAcQBxwHGAcgByAHJAccByQHIAe0A7QDuAMkB7wDwAMoBygHLAe8AywHKAfEA8QDyAMsBAAHMAc0BzQECAQABzgHNAcwBzAEBAf8AzAH/AM4B/wD+AM4B/gD7AM4B+wD8AM4B/AD9AM4BBgHPAdAB0AEFAQYB0AHPAQMBAwEEAdAB0QHSAdMB0wHUAdEB0QHUAfUA9QD2ANEB5ADhAOUA5ADVAeEA5QDmAOQA4QDVAdYB5gDlAOcA1gHXAeEA0gDnAOUA1gHYAdcB2QHXAdgB2AHaAdkB3wDZAdoB2gHbAd8A3wDbAd0A3QDeAN8A3gDdANwB3AHdAd4A3QHcAd4B3gHcAN0B3ADeAd8B3wHoANwA6ADfAdIA0gDlAOgA6QDcAOgA6ADqAOkABwEIAQkBCQEKAQcBCwEMAQ0BCwEOAQwBCwENAQ8B4AHgAOEB4QHiAeAB4wHgAeIB4gHkAeMB4wHkAeUB5QHiAOMB4gDlAeYB5gHjAOIAEAERARIBEgETARABFAEVARYBFgEXARQBGAEZARoBGgEbARgBHAEdAR4BHgEfARwBIAEhASIBIgEjASAB5wHoASQBJAElAecBJwHoAecB5wEmAScBKgEoAekB6QHqASoB6wHqAekB6QHsAesB6wHsASsBKwEpAesBLAEtAS4BLgEvASwBMAExATIBMgEzATABNAE1ATYBNgE3ATQBOAE5AToBOgE7ATgBPAE9AT4BPgE/ATwBQAFBAUIBQgFDAUABRAFFAUYBRgFHAUQBSAFJAe0B7gHtAUkB7QFKAUgBSQFLAe4BTAFIAUoB7wHuAUsBSgHwAUwBSwFNAe8BTAHwAfEB7wFNAU4B8QFOAUwBTgHxAe8B8gHzAfQB9AH1AfIB9gH1AfQB9AH3AfYBTwFQAfgB+QH4AVAB+AFRAU8BUAFSAfkBUwFPAVEB+gH5AVIBUQH7AVMBUgFUAfoBUwH7AfwB+gFUAVUB/AFVAVMBVQH8AfoB/QH+Af8B/wEAAv0BAQIAAv8B/wECAgEC"),
 "lods": [0.00947357, PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABwAIAAkACQAKAAcABwAKAAsACwAMAAcADAALAA0ADQAOAAwADwAJAAgADQAQAA4ADgAQABEAEgAQAA0ADQATABIAFAASABMAFQASABQAFgAPAAgAFwAWAAgACAAYABcAGQAXABgAGAAaABkAGQAaABsAGwAcABkAGwAdABwAHQAeABwAHwAcAB4AHgAgAB8AHwAgACEAIQAPAB8AIgAfAA8AIgAPABYAIgAWACMAIwAkACIAJQAmACcAKAAmACUAJgApACcAJQAqACgAKwAnACkALAAnACsAKwAtACwAKQAuACsALgApAC8ALwAwAC4AMQAvACgAMQAwAC8AMQAoACoAMQAyADAAMgAxADMAMwA0ADIAMQAqADUANgA1ACoANwA1ADYANgA4ADcAOQA6ADsAPAA7ADoAPQA+AD8APwBAAD0AQQBCAEMAQwBCAEQAQwBFAEEARgBBAEUARQBDAEcARwBIAEUASABHAEkASQBHAEoASQBLAEgASABLAEwATQBOAE8ATgBNAFAAUABRAE4AUABSAFEAUABTAFIAVABTAFAAVQBUAFAAVgBXAFgAVwBWAFkAVwBZAFoAWgBbAFcAWwBaAFwAXABdAFsAXgBfAGAAYQBgAF8AXwBiAGEAXgBgAGMAXgBjAGQAZABlAF4AZgBnAGgAaABpAGYAagBrAGwAbABtAGoAbgBvAHAAcQBuAHAAbgBxAHIAcgBzAG4AdAB1AHYAdAB3AHUAdAB2AHgAeQB6AHsAewB8AHkAfQB+AH8AfwCAAH0AgQCCAIMAgwCEAIEAhQCGAIcAhwCIAIUAiQCKAIsAiwCMAIkAjQCOAI8AjwCQAI0AkQCSAJMAkwCUAJEAlQCWAJcAlgCYAJcAmQCaAJsAmwCcAJkAnQCcAJsAngCfAKAAoAChAJ4AogCjAKQApAClAKIApgCnAKgAqACpAKYAqgCrAKwArACtAKoArgCvALAAsACxAK4AsgCzALQAtAC1ALIAtgC3ALgAtwC2ALkAuAC3ALoAuQC7ALcAvAC4ALoAvQC7ALkAugC9ALwAuQC8AL0AvgC/AMAAwADBAL4AwgDDAMQAxADFAMIAxgDHAMgAyADJAMYAygDLAMwAzQDOAM8AzQDPANAA0QDNANAAzwDOANIA0ADTANEA0wDUANUA1QDWANMA1gDRANMA0QDWANcA1wDYANEA0QDYANkA1wDaANgA1wDbANoA3ADPANIA3ADdAM8A3QDcAN4A3QDeAN8A3wDgAN0A3wDhAOAA4gDgAOEA4QDjAOIA5ADjAOEA5ADhAOUA5QDmAOQA5gDlAOcA0gDnAOUA0gDlAOgA0gDoANwA6QDcAOgA6ADqAOkA6wDsAO0A7QDuAOsA7wDwAPEA8QDyAO8A8wD0APUA9QD2APMA9wD4APkA+QD6APcA+wD8AP0A/gD7AP0A/wD+AP0AAAH/AP0AAAEBAf8A/QACAQABAwEEAQUBBQEGAQMBBwEIAQkBCQEKAQcBCwEMAQ0BCwEOAQwBCwENAQ8BEAERARIBEgETARABFAEVARYBFgEXARQBGAEZARoBGgEbARgBHAEdAR4BHgEfARwBIAEhASIBIgEjASABJAElASYBJwEkASYBKAEpASoBKAErASkBLAEtAS4BLgEvASwBMAExATIBMgEzATABNAE1ATYBNgE3ATQBOAE5AToBOgE7ATgBPAE9AT4BPgE/ATwBQAFBAUIBQgFDAUABRAFFAUYBRgFHAUQBSAFJAUoBSQFLAUoBTAFIAUoBSwFNAUoBSgFOAUwBSgFNAU4BTwFQAVEBUAFSAVEBUwFPAVEBUgFUAVEBUQFVAVMBUQFUAVUB")],
-"material": ExtResource("15_3ff0h"),
+"material": ExtResource("2_hij1l"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -99,7 +63,7 @@ _surfaces = [{
 "index_count": 126,
 "index_data": PackedByteArray("AgAAABoAGgAbAAIAGwAaACgAKAApABsAKQAoAB0AHQAcACkAKgAcAB0AHQArACoAKgArAAMAAwABACoALAAGAAQABAAeACwAHwAsAB4AHgAgAB8AHwAgAC0ALQAuAB8ABwAuAC0ALQAFAAcACAAJAAoACgALAAgALwAhADAAMAAiAC8ADAAvACIAIgAOAAwAIwAwACEAIQAxACMAIwAxAA0ADQAyACMADwAyAA0ADQAQAA8AEwAzACQAJAAzACUAJAA0ABMAEwA0ABEAEQASABMAJQA1ACQANQAlACYAJgAnADUAJwAmABQAFAAVACcAFgAXABgAGAAZABYA"),
 "lods": [0.00186808, PackedByteArray("AgAAABoAGgAbAAIAGgAcABsAHAAaAB0AHQADABwAAwABABwABAAeAAYAHwAGAB4AHgAgAB8AHwAgAAUABQAHAB8ACAAJAAoACgALAAgADAAhACIAIgAOAAwAIwAiACEAIQANACMADQAPACMADQAQAA8AEwAkABEAEQASABMAJAATACUAJAAlACYAJgAnACQAJwAmABQAFAAVACcAFgAXABgAGAAZABYA"), 0.0101899, PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABwAGAAUACAAJAAoACgALAAgADAANAA4ADwAOAA0ADQAQAA8AEQASABMAEQATABQAFAAVABEAFgAXABgAGAAZABYA")],
-"material": ExtResource("15_3ff0h"),
+"material": ExtResource("2_hij1l"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -135,7 +99,7 @@ _surfaces = [{
 "index_count": 147,
 "index_data": PackedByteArray("AgAZAAAAAAABAAIAGQACAAMAAwAaABkAGgADAAQABAAFABoACAAbAAYABgAHAAgAGwAIAAkACQAcABsACgAcAAkACQALAAoACgALAAwADAANAAoAHQANAAwADAAPAB0ADgAdAA8ADwAQAA4AHgAfACAAHgAhAB8AIQAiAB8AIgAjAB8AJAAlACYAJgASACQAJQAkACcAKAASACYAJwApACUAJgAqACgAKwApACcAFAAoACoAJwATACsAKgARABQAEQArABMAEwAUABEALAAtAC4ALwAuAC0ALgAWACwALQAwAC8AFgAxACwALwAwABUAGAAxABYAFwAVADAAGAAyADEAFQAXADIAMgAYABUAMwA0ADUANQA2ADMANAAzADcANwA4ADQA"),
 "lods": [0.0123944, PackedByteArray("AAABAAIAAAACAAMAAAADAAQABAAFAAAABgAHAAgABgAIAAkACQAKAAYACQALAAoACgALAAwADAANAAoADgANAAwADAAPAA4ADwAQAA4AEQASABMAFAASABEAEwAUABEAFQAWABcAGAAXABYAFwAYABUA")],
-"material": ExtResource("15_3ff0h"),
+"material": ExtResource("2_hij1l"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -171,7 +135,7 @@ _surfaces = [{
 "index_count": 114,
 "index_data": PackedByteArray("FAAVACAAFAAgAAYABgAEABQAFQAFACAAIQAFABUAIgAhABUAFQASACIAIgASACMAIwARACIAAAAkABcAFwACAAAAFwAkABYAFgAYABcADwAYABYAFgAZAA8AJQAPABkAGQAmACUAEAAlACYAJgAOABAAEAAOABoAGgAnABAAJwAaACgAKAApACcAKQAoAAEAAQADACkAKgAeAB0ADQAeACoAKgAMAA0AHQAeAAsAKwAdAAsAHQArABwAHAAbAB0ALAAbABwAHAATACwABwAIAC0ALQAfAAcACQAKAC4ALgAvAAkA"),
 "lods": [0.00202838, PackedByteArray("FAAVAAUAEQAFABUAFQASABEAFAAFAAYABgAEABQAAAAWABcAFwACAAAAFgAYABcADwAYABYAFgAZAA8AGQAOAA8AEAAPAA4AEAAOABoAEAAaAAEAAQADABAAEwAbABwAHAAbAB0AHQALABwAHQAeAAsADQAeAB0AHQAMAA0ABwAIAAkACQAfAAcACQAKAB8A"), 0.00825059, PackedByteArray("AAAOAAIADwACAA4AEAAPAA4AEAAOAAEAAQADABAABAAFAAYAEQAFAAQABAASABEABwAIAAkACQAKAAcAEwAMAA0AEwANAAsA"), 0.00968766, PackedByteArray("AAABAAIAAwACAAEABAAFAAYABwAIAAkACQAKAAcACwAMAA0A")],
-"material": ExtResource("15_3ff0h"),
+"material": ExtResource("2_hij1l"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -207,7 +171,7 @@ _surfaces = [{
 "index_count": 342,
 "index_data": PackedByteArray("AABeAF8AXwACAAAAYABfAF4AXgABAGAAYAABAAQABAADAGAABwBhAGIAYgAGAAcAYgBhAGMAYwAFAGIAYwBkAAUAYwBlAGQAYwAIAGUACgBkAGUACgBlAAkACgAJAGYACgBmAGcAZwBoAAoAaABnAAsACwAMAGgAaQBqAGsAagBpAGwADQBpAGsAawAOAA0AbABpAA8ADwAQAGwAEQBtAG4AbQASAG4AbgBvABEAEwBvAG4AcABuABIAcAAUAG4AFQAWAHEAcQByABUAGAByAHEAcQAXABgAGQAaABsAGwBzABkAGwAcAHMAHAAbAHQAdAB1ABwAHQB1AHQAdAAeAB0AHQAeAHYAHwB2AB4AHgAgAB8AIwAhAHcAdwB4ACMAIgB4AHcAdwAkACIAJQB5AHoAegAnACUAegB5ACYAJgAoAHoAewB8ADEAMQAvAHsAfAB7ADIAMgAwAHwAfQA5ADoAOgA9ADwAPAA7ADoAOgA7AH4AOgB/AH0AfgB/ADoAfQB/ADgAfwB+ADcANwA4AH8AMwA0ADUANQA2ADMAKgApAIAAgACBACoAgQCAACsAKwCCAIEAgwCCACsAKwCEAIMAgwCEACwALACFAIMAhgCFACwALACHAIYALQCGAIcAhwAuAC0AiAA/AEAAQACJAIgAPgCIAIkAiQBBAD4AigCLAEIAQgBDAIoAiwCKAEQARABFAIsAjACNAEgASABJAIwAjQCMAEYARgBHAI0AXABbAI4AjgCPAFwAjwCOAJAAkABaAI8AWQBaAJAAkABdAFkATACRAJIAkgBLAEwAkgCRAE0ATQBKAJIAUABOAJMAUwBUAFAAUABRAFMAlABRAFAAkwCVAFAAUACVAJQAlQCTAE8AUgCUAJUAlQBPAFIAVQBWAFcAVwBYAFUA"),
 "lods": [0.00795524, PackedByteArray("AAABAAIAAwACAAEAAwABAAQABQAGAAcABQAHAAgACAAJAAUACgAFAAkACgAJAAsACwAMAAoADQAJAAgACAAOAA0ACQANAA8ADwAQAAkAEQASABMAFAATABIAFQAWABcAFwAYABUAGQAaABsAGwAcABkAGwAdABwAGwAeAB0AHwAdAB4AHgAgAB8AIQAiACMAIQAkACIAJQAmACcAJgAoACcAKQAlACoAJQApACsAJgAlACsAJgArACwALQAmACwALAAuAC0ALwAwADEAMAAvADIAMwA0ADUANQA2ADMANwA4ADkANwA5ADoAOgA7ADcAPAA7ADoAOgA9ADwAPgA/AEAAQABBAD4AQgBDAEQARABFAEIARgBHAEgASABJAEYASgBLAEwASgBMAE0ATgBPAFAAUABPAFEAUgBRAE8AUABRAFMAUwBUAFAAVQBWAFcAVwBYAFUAWQBaAFsAWwBaAFwAWwBdAFkA")],
-"material": ExtResource("15_3ff0h"),
+"material": ExtResource("2_hij1l"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -243,7 +207,7 @@ _surfaces = [{
 "index_count": 246,
 "index_data": PackedByteArray("TwBQAFEATwBRAFIATwBTAFAAUwBUAFAAVQBWAB4AHQBWAFUAHgBXAFUAVQBYAB0AWQBVAFcAWABVAFkAVwAfAFkAWQAgAFgAWgBbAAIAAgAAAFoAAQBbAFoAWgADAAEAXABdACEAIQBeAFwAXABeACIAIgBfAFwAXQBcAGAAYABcAF8AYAAkAF0AXwAjAGAAYQAFAAYABgAHAGEAYQAHAAgACAAEAGEACQAKAAsACwAMAAkAYgBjABAAEAANAGIADwBjAGIAYgAOAA8AEQASABMAEwAUABEAZAAZABoAGgBlAGQAZABlABsAGwAcAGQAZgAXAGcAFwAYAGcAFgBmAGcAGABoAGcAFQAWAGcAaAAVAGcAJQAmACcAJwAoACUAKQAmACUAJQAqACkAKwAsAC0ALQAuACsAaQAvADAAMABqAGkAaQBqADEAMQAyAGkAMwA0ADUANQA2ADMANwA4ADkAOQA6ADcAOwA4ADcANwA8ADsAPQA+AD8APwBAAD0AawBCAEMAQwBsAGsAawBsAEQARABBAGsARQBGAEcARwBIAEUASwBJAG0AbgBJAEsAbQBKAEsASwBNAG4ATABKAG0AbgBNAE4AbQBvAEwATgBwAG4ATABvAHEAcQBwAE4AcQByAEwATgByAHEA"),
 "lods": [0.00327146, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABgAHAAQABAAHAAgACQAKAAsACwAMAAkADQAOAA8ADwAQAA0AEQASABMAEwAUABEAFQAWABcAGAAVABcAGQAaABsAGwAcABkAHQAeAB8AHwAgAB0AIQAiACMAIwAkACEAJQAmACcAJwAoACUAKQAmACUAJQAqACkAKwAsAC0ALQAuACsALwAwADEAMQAyAC8AMwA0ADUANQA2ADMANwA4ADkAOQA6ADcAOwA4ADcANwA8ADsAPQA+AD8APwBAAD0AQQBCAEMAQQBDAEQARQBGAEcARwBIAEUASQBKAEsATABKAEkASwBNAEkATgBMAEkASQBNAE4A")],
-"material": ExtResource("15_3ff0h"),
+"material": ExtResource("2_hij1l"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -279,7 +243,7 @@ _surfaces = [{
 "index_count": 246,
 "index_data": PackedByteArray("TwBQAFEATwBRAFIATwBTAFAAUwBUAFAAVQBWAB4AHQBWAFUAHgBXAFUAVQBYAB0AWQBVAFcAWABVAFkAVwAfAFkAWQAgAFgAWgBbAAIAAgAAAFoAAQBbAFoAWgADAAEAXABdACEAIQBeAFwAXABeACIAIgBfAFwAXQBcAGAAYABcAF8AYAAkAF0AXwAjAGAAYQAFAAYABgAHAGEAYQAHAAgACAAEAGEACQAKAAsACwAMAAkAYgBjABAAEAANAGIADwBjAGIAYgAOAA8AEQASABMAEwAUABEAZAAZABoAGgBlAGQAZABlABsAGwAcAGQAZgAXAGcAFwAYAGcAFgBmAGcAGABoAGcAFQAWAGcAaAAVAGcAJQAmACcAJwAoACUAKQAmACUAJQAqACkAKwAsAC0ALQAuACsAaQAvADAAMABqAGkAaQBqADEAMQAyAGkAMwA0ADUANQA2ADMANwA4ADkAOQA6ADcAOwA4ADcANwA8ADsAPQA+AD8APwBAAD0AawBCAEMAQwBsAGsAawBsAEQARABBAGsARQBGAEcARwBIAEUASwBJAG0AbgBJAEsAbQBKAEsASwBNAG4ATABKAG0AbgBNAE4AbQBvAEwATgBwAG4ATABvAHEAcQBwAE4AcQByAEwATgByAHEA"),
 "lods": [0.00327146, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABgAHAAQABAAHAAgACQAKAAsACwAMAAkADQAOAA8ADwAQAA0AEQASABMAEwAUABEAFQAWABcAGAAVABcAGQAaABsAGwAcABkAHQAeAB8AHwAgAB0AIQAiACMAIwAkACEAJQAmACcAJwAoACUAKQAmACUAJQAqACkAKwAsAC0ALQAuACsALwAwADEAMQAyAC8AMwA0ADUANQA2ADMANwA4ADkAOQA6ADcAOwA4ADcANwA8ADsAPQA+AD8APwBAAD0AQQBCAEMAQQBDAEQARQBGAEcARwBIAEUASQBKAEsATABKAEkASwBNAEkATgBMAEkASQBNAE4A")],
-"material": ExtResource("15_3ff0h"),
+"material": ExtResource("2_hij1l"),
 "name": "M_PaletteAtlas",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -294,112 +258,21 @@ margin = 0.001
 radius = 0.00755292
 height = 0.0290859
 
-[sub_resource type="PackedScene" id="PackedScene_558p8"]
-resource_local_to_scene = true
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(4, 0, 15, 14, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Casing", "script", "Node3D", "RigidBody3D", "MeshInstance3D", "mesh", "CollisionShape3D", "transform", "shape", "LifetimeTimer", "wait_time", "one_shot", "autostart", "Timer", "_on_lifetime_timer_timeout", "timeout"),
-"node_count": 5,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 0, 0, 1, 0, 4, 4, -1, 1, 5, 1, 0, 1, 0, 6, 6, -1, 2, 7, 2, 8, 3, 0, 0, 0, 13, 9, -1, 3, 10, 4, 11, 5, 12, 5, 0),
-"variants": [ExtResource("14_1v84g"), SubResource("ArrayMesh_lfcem"), Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.00163386), SubResource("CapsuleShape3D_mu6u3"), 10.0, true],
-"version": 3
-}
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_o0rrd")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ys0u"]
-height = 0.2
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
 
-[node name="Main" type="Node3D"]
-script = ExtResource("1_a22an")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("ArrayMesh_lfcem")
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03617, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.00163386)
+shape = SubResource("CapsuleShape3D_mu6u3")
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0577769, 0)
+[node name="LifetimeTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
 
-[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("2_1q67n")]
-
-[node name="LeftHandController" type="XRController3D" parent="XROrigin3D"]
-tracker = &"left_hand"
-pose = &"aim"
-
-[node name="LeftHand" parent="XROrigin3D/LeftHandController" instance=ExtResource("2_h1khe")]
-
-[node name="FunctionTeleport2" parent="XROrigin3D/LeftHandController" instance=ExtResource("4_bl2xt")]
-
-[node name="FunctionPickup" parent="XROrigin3D/LeftHandController" instance=ExtResource("5_6hska")]
-
-[node name="RightHandController" type="XRController3D" parent="XROrigin3D"]
-tracker = &"right_hand"
-pose = &"aim"
-
-[node name="RightHand" parent="XROrigin3D/RightHandController" instance=ExtResource("3_1q67n")]
-
-[node name="MovementDirect" parent="XROrigin3D/RightHandController" instance=ExtResource("6_ao84u")]
-
-[node name="MovementTurn2" parent="XROrigin3D/RightHandController" instance=ExtResource("8_ao84u")]
-
-[node name="FunctionPickup" parent="XROrigin3D/RightHandController" instance=ExtResource("5_6hska")]
-
-[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("8_r6vcu")]
-
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0631127, 0)
-mesh = SubResource("PlaneMesh_gs4yv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(9.836, 0, 0, 0, 1, 0, 0, 0, 9.63343, 0, -0.465648, 0)
-shape = SubResource("BoxShape3D_r6vcu")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_a22an")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.854867, 0.518848, 0, -0.518848, 0.854867, 0, 4.98822, 6.66957)
-
-[node name="Table" type="Node3D" parent="."]
-transform = Transform3D(2.14936, 0, 0, 0, 0.494989, 0, 0, 0, 0.999568, 1.98612, 0.282788, -0.873746)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Table"]
-mass = 1000.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/RigidBody3D"]
-shape = SubResource("BoxShape3D_ao84u")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table/RigidBody3D/CollisionShape3D"]
-mesh = SubResource("BoxMesh_ao84u")
-
-[node name="ToolBoard" parent="Table" instance=ExtResource("10_qjlnc")]
-transform = Transform3D(0.719452, 0, -0.814907, 0, 2.965, 0, 0.532366, 0, 1.10128, 0.302164, 0.77, 0.0643502)
-
-[node name="ThrowableAxe" parent="Table/ToolBoard" instance=ExtResource("11_2lumg")]
-transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.508874, 0)
-
-[node name="Cube3" parent="." instance=ExtResource("9_r6vcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07686, 0.643818, -0.519214)
-
-[node name="Cube4" parent="." instance=ExtResource("9_r6vcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34004, 0.643818, -0.519214)
-
-[node name="Cube5" parent="." instance=ExtResource("9_r6vcu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
-
-[node name="Pistol" parent="." instance=ExtResource("13_r7fn1")]
-transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.63945, 0.688345, -0.905999)
-casingPrefab = SubResource("PackedScene_558p8")
-bulletPrefab = null
-
-[node name="Target" type="CharacterBody3D" parent="."]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -8.01161, 0.631091, -4.58022)
-script = ExtResource("14_cffj3")
-
-[node name="targetA3" parent="Target" instance=ExtResource("12_r7fn1")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
-transform = Transform3D(-1.5299e-08, -0.35, 0, 0.35, -1.5299e-08, 0, 0, 0, 0.35, 0, 0, 0)
-shape = SubResource("CylinderShape3D_7ys0u")
+[connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
