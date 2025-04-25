@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bg0atbfl20bdt"]
+[gd_scene load_steps=44 format=4 uid="uid://bg0atbfl20bdt"]
 
 [ext_resource type="Script" uid="uid://bfs0dgt30arle" path="res://Scripts/Main.cs" id="1_a22an"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_1q67n"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="8_ao84u"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_r6vcu"]
 [ext_resource type="PackedScene" uid="uid://bp8lbm1stctif" path="res://Prefabs/cube.tscn" id="9_r6vcu"]
+[ext_resource type="Texture2D" uid="uid://d2gfug22hsqxo" path="res://Assets/Skyboxes/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="10_3ff0h"]
 [ext_resource type="PackedScene" uid="uid://c8pahmn5xov5y" path="res://Prefabs/tool_board.tscn" id="10_qjlnc"]
 [ext_resource type="PackedScene" uid="uid://dwb0yp3pdgul3" path="res://Prefabs/throwable_axe.tscn" id="11_2lumg"]
 [ext_resource type="PackedScene" uid="uid://bkcabw3dsa5mp" path="res://Assets/targetA.glb" id="12_r7fn1"]
@@ -26,14 +27,16 @@ size = Vector2(10, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6vcu"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_a22an"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_558p8"]
+panorama = ExtResource("10_3ff0h")
 
 [sub_resource type="Sky" id="Sky_vbwdf"]
-sky_material = SubResource("PhysicalSkyMaterial_a22an")
+sky_material = SubResource("PanoramaSkyMaterial_558p8")
 
 [sub_resource type="Environment" id="Environment_a22an"]
 background_mode = 2
 sky = SubResource("Sky_vbwdf")
+ambient_light_color = Color(0.52876, 0.68171, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ao84u"]
 
@@ -294,7 +297,7 @@ margin = 0.001
 radius = 0.00755292
 height = 0.0290859
 
-[sub_resource type="PackedScene" id="PackedScene_558p8"]
+[sub_resource type="PackedScene" id="PackedScene_1v84g"]
 resource_local_to_scene = true
 _bundled = {
 "conn_count": 1,
@@ -391,7 +394,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
 
 [node name="Pistol" parent="." instance=ExtResource("13_r7fn1")]
 transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.63945, 0.688345, -0.905999)
-casingPrefab = SubResource("PackedScene_558p8")
+casingPrefab = SubResource("PackedScene_1v84g")
 bulletPrefab = null
 
 [node name="Target" type="CharacterBody3D" parent="." groups=["SHOOTABLE"]]
