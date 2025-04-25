@@ -135,13 +135,14 @@ _data = {
 &"Shoot": SubResource("Animation_lr7up")
 }
 
-[node name="Pistol" node_paths=PackedStringArray("animator", "shootSFX", "clickSFX") groups=["PISTOL"] instance=ExtResource("1_p444w")]
+[node name="Pistol" node_paths=PackedStringArray("animator", "shootSFX", "clickSFX", "barrelRaycast") groups=["PISTOL"] instance=ExtResource("1_p444w")]
 script = ExtResource("2_p0ord")
 casingPrefab = ExtResource("3_klsyw")
 bulletPrefab = ExtResource("5_yexf5")
 animator = NodePath("AnimationPlayer")
 shootSFX = NodePath("BulletSpawn/ShootSFX")
 clickSFX = NodePath("BulletSpawn/EmptySFX")
+barrelRaycast = NodePath("BulletSpawn/RayCast3D")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000988768, 0.0717613, 0.0749573)
@@ -182,14 +183,19 @@ mesh = SubResource("ArrayMesh_6tltp")
 [node name="BulletSpawn" type="Node3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00224501, 0.13223, 0.193343)
 
-[node name="ShootSFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="0"]
-stream = ExtResource("9_klsyw")
-volume_db = -40.36
+[node name="RayCast3D" type="RayCast3D" parent="BulletSpawn" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00224501, 0.000286266, -0.00431804)
+target_position = Vector3(0, 0, 100)
+debug_shape_custom_color = Color(0.788235, 0, 0, 1)
 
-[node name="EmptySFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="1"]
+[node name="ShootSFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="1"]
+stream = ExtResource("9_klsyw")
+volume_db = -30.722
+
+[node name="EmptySFX" type="AudioStreamPlayer3D" parent="BulletSpawn" index="2"]
 stream = ExtResource("11_yexf5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpawn" index="2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpawn" index="3"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {

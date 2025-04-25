@@ -262,6 +262,7 @@ height = 0.0290859
 script = ExtResource("1_o0rrd")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+gravity_scale = 0.01
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("ArrayMesh_lfcem")

@@ -17,13 +17,14 @@ class_name Gun
 @export var animator : AnimationPlayer;
 @export var shootSFX : AudioStreamPlayer3D;
 @export var clickSFX : AudioStreamPlayer3D;
+@export var barrelRaycast : RayCast3D;
 
 
 
 var currentMagazine : Magazine;
 
 
-const BULLET_SPEED = 100.0;
+const BULLET_SPEED = 1.0;		#previously 100
 
 
 func _ready():
@@ -49,13 +50,17 @@ func Shoot():
 		
 	
 func FireBullet():
-	if bulletPrefab != null:
-		var tempPrefab = bulletPrefab.instantiate() as Bullet;
-		#adds it to our scene
-		get_tree().get_root().add_child(tempPrefab)
-		
-		tempPrefab.transform = $BulletSpawn.global_transform;
-		tempPrefab.linear_velocity = tempPrefab.transform.basis.z * BULLET_SPEED;
+	if barrelRaycast.is_colliding() and barrelRaycast.get_collider().is_in_group("SHOOTABLE"):
+		#var collider = barrelRaycast.get_collider()
+		barrelRaycast.get_collider().free();
+	
+	#if bulletPrefab != null:
+		#var tempPrefab = bulletPrefab.instantiate() as Bullet;
+		##adds it to our scene
+		#get_tree().get_root().add_child(tempPrefab)
+		#
+		#tempPrefab.transform = $BulletSpawn.global_transform;
+		#tempPrefab.linear_velocity = tempPrefab.transform.basis.z * BULLET_SPEED;
 
 
 func EjectCasing():

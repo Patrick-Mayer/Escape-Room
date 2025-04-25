@@ -394,7 +394,7 @@ transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -
 casingPrefab = SubResource("PackedScene_558p8")
 bulletPrefab = null
 
-[node name="Target" type="CharacterBody3D" parent="."]
+[node name="Target" type="CharacterBody3D" parent="." groups=["SHOOTABLE"]]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -8.01161, 0.631091, -4.58022)
 script = ExtResource("14_cffj3")
 
