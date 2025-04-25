@@ -1,3 +1,10 @@
+#TODO
+#1. Fix gun snapping issue
+#2. Fix casing parenting issue
+#3. Test bullet hitting target with print statement
+#4. Add muzzle flash
+#5. Add haptic feedback when player shoots gun.
+
 extends XRToolsPickable
 
 class_name Gun
@@ -45,7 +52,7 @@ func FireBullet():
 	if bulletPrefab != null:
 		var tempPrefab = bulletPrefab.instantiate() as Bullet;
 		#adds it to our scene
-		add_child(tempPrefab);
+		get_tree().get_root().add_child(tempPrefab)
 		
 		tempPrefab.transform = $BulletSpawn.global_transform;
 		tempPrefab.linear_velocity = tempPrefab.transform.basis.z * BULLET_SPEED;
@@ -54,7 +61,7 @@ func FireBullet():
 func EjectCasing():
 	if casingPrefab != null:
 		var tempPrefab = casingPrefab.instantiate() as Casing;
-		add_child(tempPrefab);
+		get_tree().get_root().add_child(tempPrefab)
 		
 		tempPrefab.transform = $Pistol/Pistol/slide/CasingSpawn.global_transform;
 		tempPrefab.get_child(0);
