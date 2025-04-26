@@ -22,7 +22,7 @@ var currentMagazine : Magazine;
 
 
 const BULLET_SPEED = 1.0;		#previously 100
-
+var _timer = 0.0
 
 func _ready():
 	interface = XRServer.find_interface("OpenXR");
@@ -80,3 +80,12 @@ func EjectCasing():
 		tempPrefab.transform = $Pistol/Pistol/slide/CasingSpawn.global_transform;
 		tempPrefab.get_child(0);
 		#tempPrefab.GetChild(0).linear_velocity = tempPrefab.transform.basis.y * 10.0;
+		
+		
+func _process(delta):
+	if currentMagazine.ammo < currentMagazine.max_ammo:
+		_timer += delta
+		if _timer >= currentMagazine.regenerate_rate:
+			_timer -= currentMagazine.regenerate_rate
+			currentMagazine.ammo += 1
+			print("ammo replenished to ", currentMagazine.ammo)
