@@ -396,6 +396,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
 transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.63945, 0.688345, -0.905999)
 casingPrefab = SubResource("PackedScene_3ff0h")
 bulletPrefab = null
+enabled = true
+press_to_hold = true
+picked_up_layer = 65536
+release_mode = -1
+ranged_grab_method = 1
+second_hand_grab = 0
+ranged_grab_speed = 20.0
+picked_by_exclude = ""
+picked_by_require = ""
 
 [node name="Target" type="CharacterBody3D" parent="." groups=["SHOOTABLE"]]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -8.01161, 0.631091, -4.58022)

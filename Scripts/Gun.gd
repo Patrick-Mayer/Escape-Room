@@ -1,6 +1,5 @@
 #TODO
 #1. Fix gun snapping issue
-#4. Add muzzle flash
 #5. Add haptic feedback when player shoots gun.
 
 extends XRToolsPickable
@@ -18,7 +17,7 @@ class_name Gun
 @export var barrelRaycast : RayCast3D;
 
 
-
+var interface : XRInterface;
 var currentMagazine : Magazine;
 
 
@@ -26,17 +25,29 @@ const BULLET_SPEED = 1.0;		#previously 100
 
 
 func _ready():
+	interface = XRServer.find_interface("OpenXR");
 	currentMagazine = magazinePrefab.instantiate() as Magazine;
 
 #this is how we handle trigger input on VR controller
 func action():
 	Shoot();
-
+	
 func Shoot():
 	if animator.is_playing():
 		return;
 	
 	if (currentMagazine.HasAmmo()):
+		#haptic feedback
+		print(XRServer.get_tracker("right_hand"));
+		const DEFAULT_FREQUENCY = 0.0;
+		var amplitude = 1;		#must be between 0 and 1
+		var duration = 0.1;
+		var durationDelay = 0.05;
+		
+		interface.trigger_haptic_pulse("haptic", "right_hand", DEFAULT_FREQUENCY, amplitude, duration, durationDelay);
+		#interface.trigger_haptic_pulse("haptic", "right_hand", 300, 1, 0.2, 0);
+		
+
 		FireBullet();
 		shootSFX.play();
 		animator.play("Shoot");
