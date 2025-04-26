@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://c8nmp4c1kld3q"]
 
-[ext_resource type="Script" uid="uid://dcminb2ls8c0l" path="res://Scripts/Bullet.gd" id="1_o0rrd"]
+[ext_resource type="Script" uid="uid://dcminb2ls8c0l" path="res://Scripts/bullet.gd" id="1_o0rrd"]
 [ext_resource type="Material" uid="uid://kurwdxkvisrf" path="res://Models/pistol/Model/M_PaletteAtlas.tres" id="2_hij1l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_uu7p8"]

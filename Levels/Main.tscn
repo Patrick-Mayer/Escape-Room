@@ -297,7 +297,7 @@ margin = 0.001
 radius = 0.00755292
 height = 0.0290859
 
-[sub_resource type="PackedScene" id="PackedScene_1v84g"]
+[sub_resource type="PackedScene" id="PackedScene_3ff0h"]
 resource_local_to_scene = true
 _bundled = {
 "conn_count": 1,
@@ -394,7 +394,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
 
 [node name="Pistol" parent="." instance=ExtResource("13_r7fn1")]
 transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.63945, 0.688345, -0.905999)
-casingPrefab = SubResource("PackedScene_1v84g")
+casingPrefab = SubResource("PackedScene_3ff0h")
 bulletPrefab = null
 
 [node name="Target" type="CharacterBody3D" parent="." groups=["SHOOTABLE"]]

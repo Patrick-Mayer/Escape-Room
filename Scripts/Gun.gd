@@ -1,7 +1,5 @@
 #TODO
 #1. Fix gun snapping issue
-#2. Fix casing parenting issue
-#3. Test bullet hitting target with print statement
 #4. Add muzzle flash
 #5. Add haptic feedback when player shoots gun.
 
