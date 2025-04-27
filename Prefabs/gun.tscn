@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvb0jr82kdc7x"]
+[gd_scene load_steps=6 format=3 uid="uid://c4uwdw7qvhqpv"]
 
-[ext_resource type="Script" uid="uid://nyn8vnfwf3kf" path="res://Scripts/gun.gd" id="1_hn3bi"]
+[ext_resource type="Script" uid="uid://clbb5bijmg5uj" path="res://Scripts/gun.gd" id="1_hn3bi"]
 [ext_resource type="PackedScene" uid="uid://bydjrj4avgyjd" path="res://Assets/blasterF.glb" id="2_lr0gd"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pd6w8"]

@@ -15,7 +15,7 @@ func _ready():
 	#	if child.is_in_group("SHOOTABLE"):
 	#		targets.append(child)
 	for target_node in targets:
-		var target = target_node #as Target
+		var target = target_node as Target;
 		if target != null:
 			target.target_hit.connect(_on_target_hit)
 
@@ -44,5 +44,5 @@ func _on_target_hit(target):
 
 	if (target_order and target_index >= targets.size()) or (not target_order and successful_hits >= targets.size()):
 		complete = true
-		get_node("Pistol").SetText("You completed level soometying" + "!");
+		GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
 		GameMaster.complete_level()

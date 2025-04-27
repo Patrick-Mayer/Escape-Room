@@ -31,6 +31,7 @@ var _popup_timer = 0.0
 func _ready():
 	interface = XRServer.find_interface("OpenXR");
 	currentMagazine = magazinePrefab.instantiate() as Magazine;
+	GameMaster.gun = self;
 
 #this is how we handle trigger input on VR controller
 func action():
@@ -71,7 +72,7 @@ func FireBullet():
 		if target != null:
 			#SetText("You got " + str(target.points_worth) + "!")
 			target.mark_hit()
-		barrelRaycast.get_collider().free();
+		#barrelRaycast.get_collider().free();
 	
 	#if bulletPrefab != null:
 		#var tempPrefab = bulletPrefab.instantiate() as Bullet;
@@ -110,6 +111,7 @@ func _process(delta):
 			popupText.visible = false
 
 func SetText(text):
+	print("trying to set text to", text)
 	popupText.text = text
 	popupText.visible = true
 	_popup_timer = 3;

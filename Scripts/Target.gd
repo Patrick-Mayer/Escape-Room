@@ -24,9 +24,12 @@ func finalize_hit():
 	if hasBeenHit:
 		return
 	hasBeenHit = true
-	$MeshInstance3D.visible = false
-	$Area3D/CollisionShape3D.disabled = true
-	$"../../Pistol".get_script().
+	self.visible = false
+	get_child(1).disabled = true
+	#$"../../Pistol".get_script().
+	GameManager.Get_Gun().SetText("You just scored " + str(points_worth) + " points");
+	#find_no
 	
 func mark_hit():
+	print("trying to mark as hit")
 	emit_signal("target_hit", self)

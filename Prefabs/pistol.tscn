@@ -362,8 +362,8 @@ billboard = 1
 modulate = Color(0, 0, 0, 1)
 outline_modulate = Color(0.914328, 0.761117, 0.8628, 1)
 text = "Test"
-font_size = 100
-outline_size = 30
+font_size = 25
+outline_size = 127
 uppercase = true
 
 [editable path="Pistol"]
