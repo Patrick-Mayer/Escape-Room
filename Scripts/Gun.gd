@@ -24,6 +24,8 @@ var currentMagazine : Magazine;
 const BULLET_SPEED = 1.0;		#previously 100
 var _timer = 0.0
 
+@onready var bar = $Ammo_Bar #/UI_3D/SubViewport/Control/TextureProgressBar
+
 func _ready():
 	interface = XRServer.find_interface("OpenXR");
 	currentMagazine = magazinePrefab.instantiate() as Magazine;
@@ -53,6 +55,8 @@ func Shoot():
 		animator.play("Shoot");
 		EjectCasing();
 		currentMagazine.ammo -= 1;
+		bar.scale.z = max(currentMagazine.ammo, 0)
+		#bar.value = (currentMagazine.ammo / currentMagazine.max_ammo) * 100.0
 	else:
 		clickSFX.play();
 		animator.play("Empty");
@@ -89,3 +93,6 @@ func _process(delta):
 			_timer -= currentMagazine.regenerate_rate
 			currentMagazine.ammo += 1
 			print("ammo replenished to ", currentMagazine.ammo)
+			bar.scale.z = max(currentMagazine.ammo, 0);
+			#bar.value = currentMagazine.ammo / currentMagazine.max_ammo * 100.0
+			#print("current bar level ", bar.value)

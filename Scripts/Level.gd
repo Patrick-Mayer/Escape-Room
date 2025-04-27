@@ -28,4 +28,4 @@ func _on_target_hit(target):
 
 	if (target_order and target_index >= targets.size()) or (not target_order and targets.is_empty()):
 		complete = true
-		GameMaster.CompleteLevel()
+		GameMaster.complete_level()

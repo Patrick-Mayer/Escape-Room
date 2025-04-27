@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c1nt5d31iq6nv"]
+[gd_scene load_steps=32 format=4 uid="uid://c1nt5d31iq6nv"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p444w"]
 [ext_resource type="Script" uid="uid://clbb5bijmg5uj" path="res://Scripts/Gun.gd" id="2_p0ord"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" path="res://Models/muzzle_flash_material.tres" id="11_ixpjq"]
 [ext_resource type="AudioStream" uid="uid://crim4j7qdab5m" path="res://Audio/SFX/EmptySFX.mp3" id="11_yexf5"]
 [ext_resource type="Script" uid="uid://cf7f3x3itwvlg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.gd" id="12_lr7up"]
+[ext_resource type="Script" uid="uid://cc0opv1lf3dx" path="res://Scripts/ammo_bar.gd" id="14_6tltp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr7up"]
 size = Vector3(0.244873, 1.48427, 2.10754)
@@ -237,6 +238,29 @@ _data = {
 &"Shoot": SubResource("Animation_lr7up")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6tltp"]
+
+[sub_resource type="Gradient" id="Gradient_hwdwx"]
+offsets = PackedFloat32Array(0, 0.6, 0.843511, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.62439, 0.62439, 0.62439, 1, 0.412214, 0.412214, 0.412214, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xl6pp"]
+gradient = SubResource("Gradient_hwdwx")
+fill_from = Vector2(0.957265, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_mirn4"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1dmsx"]
+gradient = SubResource("Gradient_mirn4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tltp"]
+albedo_color = Color(0.403415, 0.512139, 0.873002, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6tltp"]
+size = Vector3(0.013, 0.003, 0.066)
+
 [node name="Pistol" node_paths=PackedStringArray("animator", "shootSFX", "clickSFX", "barrelRaycast") groups=["PISTOL"] instance=ExtResource("1_p444w")]
 script = ExtResource("2_p0ord")
 casingPrefab = ExtResource("3_klsyw")
@@ -309,5 +333,39 @@ stream = ExtResource("11_yexf5")
 libraries = {
 &"": SubResource("AnimationLibrary_lr7up")
 }
+
+[node name="Ammo_Bar" type="Node3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.18, 0.00526011, 0.150102, 0.0440803)
+script = ExtResource("14_6tltp")
+
+[node name="UI_3D" type="SubViewportContainer" parent="Ammo_Bar" index="0"]
+material = SubResource("CanvasItemMaterial_6tltp")
+offset_right = 128.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Ammo_Bar/UI_3D" index="0"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 32)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="Ammo_Bar/UI_3D/SubViewport" index="0"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Ammo_Bar/UI_3D/SubViewport/Control" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_over = SubResource("GradientTexture2D_xl6pp")
+texture_progress = SubResource("GradientTexture1D_1dmsx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ammo_Bar" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.122252, -0.00336955, -0.00447515, 0.00249731)
+material_override = SubResource("StandardMaterial3D_6tltp")
+mesh = SubResource("BoxMesh_6tltp")
+skeleton = NodePath("../UI_3D")
 
 [editable path="Pistol"]
