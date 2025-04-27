@@ -521,7 +521,6 @@ transform = Transform3D(-0.116827, 0, -0.993152, 0, 1, 0, 0.993152, 0, -0.116827
 [node name="Level1" type="Node" parent="." node_paths=PackedStringArray("targets")]
 script = ExtResource("20_366t1")
 targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3")]
-target_order = true
 
 [node name="Target" type="CharacterBody3D" parent="Level1" groups=["SHOOTABLE"]]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 5.62671, 1.64569, 22.7863)
