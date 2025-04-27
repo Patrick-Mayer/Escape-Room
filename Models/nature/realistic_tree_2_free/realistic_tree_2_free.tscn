@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://t7cy0tx1kpu7"]
+
+[ext_resource type="PackedScene" uid="uid://pxqt65hyh50c" path="res://Models/nature/realistic_tree_2_free/scene.gltf" id="1_tuysg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_tuysg")]
