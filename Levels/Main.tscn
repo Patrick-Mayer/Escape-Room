@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bg0atbfl20bdt"]
+[gd_scene load_steps=45 format=4 uid="uid://bg0atbfl20bdt"]
 
 [ext_resource type="Script" uid="uid://bfs0dgt30arle" path="res://Scripts/Main.cs" id="1_a22an"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_1q67n"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://ddpynlqrak5qv" path="res://casing.gd" id="14_1v84g"]
 [ext_resource type="Script" uid="uid://i5wyevm0ah12" path="res://Scripts/Target.gd" id="14_cffj3"]
 [ext_resource type="Material" uid="uid://kurwdxkvisrf" path="res://Models/pistol/Model/M_PaletteAtlas.tres" id="15_3ff0h"]
+[ext_resource type="Script" uid="uid://w3jp8akihevq" path="res://Scripts/Level.gd" id="17_558p8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao84u"]
 
@@ -297,7 +298,7 @@ margin = 0.001
 radius = 0.00755292
 height = 0.0290859
 
-[sub_resource type="PackedScene" id="PackedScene_3ff0h"]
+[sub_resource type="PackedScene" id="PackedScene_bxvom"]
 resource_local_to_scene = true
 _bundled = {
 "conn_count": 1,
@@ -394,15 +395,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71453, 0.643818, -0.519214)
 
 [node name="Pistol" parent="." instance=ExtResource("13_r7fn1")]
 transform = Transform3D(3.94408e-08, -1, 8.73184e-08, -0.998806, -4.36592e-08, -0.0488498, 0.0488498, -8.52875e-08, -0.998806, 1.63945, 0.688345, -0.905999)
-casingPrefab = SubResource("PackedScene_3ff0h")
+casingPrefab = SubResource("PackedScene_bxvom")
 bulletPrefab = null
 
-[node name="Target" type="CharacterBody3D" parent="." groups=["SHOOTABLE"]]
+[node name="Level1" type="Node" parent="." node_paths=PackedStringArray("targets")]
+script = ExtResource("17_558p8")
+targets = [NodePath("Target")]
+
+[node name="Target" type="CharacterBody3D" parent="Level1" groups=["SHOOTABLE"]]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -8.01161, 0.631091, -4.58022)
 script = ExtResource("14_cffj3")
+points_worth = null
 
-[node name="targetA3" parent="Target" instance=ExtResource("12_r7fn1")]
+[node name="targetA3" parent="Level1/Target" instance=ExtResource("12_r7fn1")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level1/Target"]
 transform = Transform3D(-1.5299e-08, -0.35, 0, 0.35, -1.5299e-08, 0, 0, 0, 0.35, 0, 0, 0)
 shape = SubResource("CylinderShape3D_7ys0u")

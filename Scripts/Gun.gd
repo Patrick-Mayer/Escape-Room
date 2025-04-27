@@ -23,8 +23,10 @@ var currentMagazine : Magazine;
 
 const BULLET_SPEED = 1.0;		#previously 100
 var _timer = 0.0
+var _popup_timer = 0.0
 
 @onready var bar = $Ammo_Bar #/UI_3D/SubViewport/Control/TextureProgressBar
+@onready var popupText = $PopupText
 
 func _ready():
 	interface = XRServer.find_interface("OpenXR");
@@ -64,7 +66,11 @@ func Shoot():
 	
 func FireBullet():
 	if barrelRaycast.is_colliding() and barrelRaycast.get_collider().is_in_group("SHOOTABLE"):
-		#var collider = barrelRaycast.get_collider()
+		var collider = barrelRaycast.get_collider()
+		var target : Target = collider as Target
+		if target != null:
+			#SetText("You got " + str(target.points_worth) + "!")
+			target.mark_hit()
 		barrelRaycast.get_collider().free();
 	
 	#if bulletPrefab != null:
@@ -96,3 +102,14 @@ func _process(delta):
 			bar.scale.z = max(currentMagazine.ammo, 0);
 			#bar.value = currentMagazine.ammo / currentMagazine.max_ammo * 100.0
 			#print("current bar level ", bar.value)
+			
+	if _popup_timer > 0:
+		_popup_timer -= delta
+		if _popup_timer <= 0:
+			_popup_timer = 0
+			popupText.visible = false
+
+func SetText(text):
+	popupText.text = text
+	popupText.visible = true
+	_popup_timer = 3;

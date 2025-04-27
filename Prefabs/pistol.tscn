@@ -1,18 +1,15 @@
-[gd_scene load_steps=32 format=4 uid="uid://c1nt5d31iq6nv"]
+[gd_scene load_steps=29 format=4 uid="uid://c1nt5d31iq6nv"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p444w"]
 [ext_resource type="Script" uid="uid://clbb5bijmg5uj" path="res://Scripts/Gun.gd" id="2_p0ord"]
 [ext_resource type="PackedScene" uid="uid://t4uxcwx6j0gx" path="res://Models/pistol/Model/Pistol.fbx" id="2_welo6"]
 [ext_resource type="PackedScene" uid="uid://b7k5l468m237e" path="res://Prefabs/casing.tscn" id="3_klsyw"]
-[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_p0ord"]
-[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_klsyw"]
 [ext_resource type="PackedScene" uid="uid://c8nmp4c1kld3q" path="res://Prefabs/pistol_bullet.tscn" id="5_yexf5"]
 [ext_resource type="Script" uid="uid://v0mnj45xyfcn" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="6_lr7up"]
 [ext_resource type="Script" uid="uid://d1kslx11fj5f2" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="6_yexf5"]
 [ext_resource type="AudioStream" uid="uid://cr6am0liaeoi5" path="res://Audio/SFX/PistolShootSFX.mp3" id="9_klsyw"]
 [ext_resource type="Material" path="res://Models/muzzle_flash_material.tres" id="11_ixpjq"]
 [ext_resource type="AudioStream" uid="uid://crim4j7qdab5m" path="res://Audio/SFX/EmptySFX.mp3" id="11_yexf5"]
-[ext_resource type="Script" uid="uid://cf7f3x3itwvlg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.gd" id="12_lr7up"]
 [ext_resource type="Script" uid="uid://cc0opv1lf3dx" path="res://Scripts/ammo_bar.gd" id="14_6tltp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr7up"]
@@ -274,7 +271,13 @@ barrelRaycast = NodePath("BulletSpawn/RayCast3D")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000988768, 0.0717613, 0.0749573)
 shape = SubResource("BoxShape3D_lr7up")
 
-[node name="Pistol" parent="." index="1" instance=ExtResource("2_welo6")]
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0620437, -0.0948558)
+script = ExtResource("6_lr7up")
+hand = 1
+metadata/_custom_type_script = "uid://v0mnj45xyfcn"
+
+[node name="Pistol" parent="." index="2" instance=ExtResource("2_welo6")]
 
 [node name="slide" parent="Pistol/Pistol" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000184433, 0.0780441, 0.0573408)
@@ -282,23 +285,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000184433, 0.0780441, 0.05
 [node name="CasingSpawn" type="Node3D" parent="Pistol/Pistol/slide" index="1"]
 transform = Transform3D(0.733623, 0.679557, 0, -0.679557, 0.733623, 0, 0, 0, 1, 0.0234394, 0.0279298, 0.00411215)
 
-[node name="XRToolsGrabPointSnap" type="Marker3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0649259, 0.0198742)
-script = ExtResource("12_lr7up")
-metadata/_custom_type_script = "uid://cf7f3x3itwvlg"
-
-[node name="XRToolsGrabPointHand" type="Marker3D" parent="." index="3"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0788673, 0.10124)
-script = ExtResource("6_lr7up")
-metadata/_custom_type_script = "uid://v0mnj45xyfcn"
-
-[node name="GrabPointHandLeft" parent="." index="4" instance=ExtResource("3_p0ord")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0346599, 0.0976555, 0.149595)
-
-[node name="GrabPointHandRight" parent="." index="5" instance=ExtResource("4_klsyw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0265118, 0.0991335, 0.136248)
-
-[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="6"]
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="3"]
 script = ExtResource("6_yexf5")
 metadata/_custom_type_script = "uid://d1kslx11fj5f2"
 
@@ -306,7 +293,7 @@ metadata/_custom_type_script = "uid://d1kslx11fj5f2"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00103015, 0.0519315, 0.0103227)
 mesh = SubResource("ArrayMesh_6tltp")
 
-[node name="BulletSpawn" type="Node3D" parent="." index="7"]
+[node name="BulletSpawn" type="Node3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00224501, 0.13223, 0.193343)
 
 [node name="MuzzleFlash" type="MeshInstance3D" parent="BulletSpawn" index="0"]
@@ -329,12 +316,12 @@ stream = ExtResource("11_yexf5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BulletSpawn" index="4"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {
 &"": SubResource("AnimationLibrary_lr7up")
 }
 
-[node name="Ammo_Bar" type="Node3D" parent="." index="9"]
+[node name="Ammo_Bar" type="Node3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.18, 0.00526011, 0.150102, 0.0440803)
 script = ExtResource("14_6tltp")
 
@@ -367,5 +354,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.122252, -0.00336955, -0.004475
 material_override = SubResource("StandardMaterial3D_6tltp")
 mesh = SubResource("BoxMesh_6tltp")
 skeleton = NodePath("../UI_3D")
+
+[node name="PopupText" type="Label3D" parent="." index="7"]
+transform = Transform3D(-0.114297, 5.74588e-05, -0.0126937, 4.8641e-05, 0.115, 8.25974e-05, 0.0126937, 7.67252e-05, -0.114297, -0.0146977, 0.195822, 0.062476)
+visible = false
+billboard = 1
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0.914328, 0.761117, 0.8628, 1)
+text = "Test"
+font_size = 100
+outline_size = 30
+uppercase = true
 
 [editable path="Pistol"]

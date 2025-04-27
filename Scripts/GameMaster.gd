@@ -12,4 +12,4 @@ static var score: int = 0
 static func complete_level():
 	lvl_current += 1
 	lvl_cleared += 1
-	pass
+	#get_node("Pistol").SetText("You completed level soometying" + "!");
