@@ -18,6 +18,8 @@ static var lvl_cleared: int = 0
 static var score: int = 0
 static var gun: Node;
 
+static var nextLevelTargetPrefab : PackedScene = preload("res://Prefabs/NextLevelTarget.tscn");
+
 var tutorialLevel : PackedScene = preload("res://Prefabs/tutorialLevel.tscn");
 var level1 : PackedScene = null;
 var level2 : PackedScene = null;

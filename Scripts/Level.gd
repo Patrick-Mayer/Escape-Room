@@ -51,4 +51,10 @@ func _on_target_hit(target):
 		complete = true
 		#GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
 		GameManager.Get_Gun().SetText("You completed the level in " + str(GameMaster.timer) + " seconds!");
-		GameMaster.complete_level()
+		GameMaster.complete_level();
+		
+		if GameManager.lvl_current < 3:
+			await get_tree().create_timer(3.0).timeout;
+			var nextLevelTarget = GameManager.nextLevelTargetPrefab;
+			var nextLevelTargetInstance = nextLevelTarget.instantiate();
+			get_tree().get_root().add_child(nextLevelTargetInstance);
