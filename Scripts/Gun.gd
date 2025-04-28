@@ -72,9 +72,16 @@ func FireBullet():
 	if barrelRaycast.is_colliding() and barrelRaycast.get_collider().is_in_group("SHOOTABLE"):
 		var collider = barrelRaycast.get_collider()
 		var target : Target = collider as Target
+		var nextLevelTarget : Next_Level_Target = collider as Next_Level_Target
+
 		if target != null:
-			#SetText("You got " + str(target.points_worth) + "!")
 			target.mark_hit()
+		elif nextLevelTarget != null:
+			nextLevelTarget.mark_hit()
+		
+		#if nextLevelTarget != null:
+			#target.mark_hit();
+		
 		#barrelRaycast.get_collider().free();
 	
 	#if bulletPrefab != null:

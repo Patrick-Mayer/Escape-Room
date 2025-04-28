@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0x6ysvacgstb"]
+
+[ext_resource type="Script" uid="uid://w3jp8akihevq" path="res://Scripts/Level.gd" id="1_1gi3v"]
+[ext_resource type="PackedScene" uid="uid://dvtwggt8hikfr" path="res://Prefabs/target.tscn" id="2_vawnc"]
+
+[node name="TutorialLevel" type="Node" node_paths=PackedStringArray("targets")]
+script = ExtResource("1_1gi3v")
+targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3")]
+
+[node name="Target" parent="." instance=ExtResource("2_vawnc")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -30, 10, 30)
+
+[node name="Target2" parent="." instance=ExtResource("2_vawnc")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 0, 10, 30)
+
+[node name="Target3" parent="." instance=ExtResource("2_vawnc")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 30, 10, 30)

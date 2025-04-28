@@ -1,5 +1,3 @@
-#! Fix issue with line 18, target_noode as Target, and also put SetText() in the proper place
-
 extends Node
 
 var complete: bool = false
@@ -16,7 +14,11 @@ func _ready():
 	#	if child.is_in_group("SHOOTABLE"):
 	#		targets.append(child)
 	
-	GameManager.levels[levelNum] = self;
+	#GameManager.levels[levelNum] = self;
+	
+	#if GameManager.lvl_current != levelNum:
+		#queue_free();
+	
 	for target_node in targets:
 		var target = target_node as Target;
 		if target != null:
@@ -47,5 +49,6 @@ func _on_target_hit(target):
 
 	if (target_order and target_index >= targets.size()) or (not target_order and successful_hits >= targets.size()):
 		complete = true
-		GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
+		#GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
+		GameManager.Get_Gun().SetText("You completed the level in " + str(GameMaster.timer) + " seconds!");
 		GameMaster.complete_level()
