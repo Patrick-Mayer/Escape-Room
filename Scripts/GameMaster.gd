@@ -1,6 +1,5 @@
 #Last minute things to do:
 #2. Make level with moving targets (not circles though, that's an AL job if he wants to try and cram that in there last min)
-#5. Tutorial text over NextLevelTarget
 #6. Audiosource SFX for hitting target
 #7. Export project
 

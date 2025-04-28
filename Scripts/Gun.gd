@@ -12,9 +12,12 @@ class_name Gun
 @export var bulletPrefab : PackedScene;
 
 @export var animator : AnimationPlayer;
+@export var barrelRaycast : RayCast3D;
+
 @export var shootSFX : AudioStreamPlayer3D;
 @export var clickSFX : AudioStreamPlayer3D;
-@export var barrelRaycast : RayCast3D;
+@export var beatLevelSFX : AudioStreamPlayer;
+@export var dingSFX : AudioStreamPlayer;
 
 
 var interface : XRInterface;
@@ -76,6 +79,7 @@ func FireBullet():
 
 		if target != null:
 			target.mark_hit()
+			dingSFX.play();
 		elif nextLevelTarget != null:
 			nextLevelTarget.mark_hit()
 		
@@ -147,6 +151,9 @@ func SetText(text):
 	popupText.text = text
 	popupText.visible = true
 	_popup_timer = 3;
+	
+func PlayBeatLevelSFX():
+	beatLevelSFX.play();
 
 
 func _on_picked_up(pickable: Variant) -> void:

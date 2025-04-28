@@ -58,6 +58,7 @@ func _on_target_hit(target):
 		complete = true
 		#GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
 		#good 'ole format specifiers
+		GameManager.Get_Gun().PlayBeatLevelSFX();
 		GameManager.Get_Gun().SetText("You completed the level in %.2f seconds!" % GameManager.timer);
 		GameMaster.complete_level();
 		
