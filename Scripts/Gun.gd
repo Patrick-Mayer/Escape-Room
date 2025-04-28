@@ -21,6 +21,9 @@ var interface : XRInterface;
 var currentMagazine : Magazine;
 
 
+var pickedUp = false;
+
+
 const BULLET_SPEED = 1.0;		#previously 100
 var _timer = 0.0
 var _popup_timer = 0.0
@@ -109,9 +112,40 @@ func _process(delta):
 		if _popup_timer <= 0:
 			_popup_timer = 0
 			popupText.visible = false
+			
+			
+func _physics_process(delta: float) -> void:
+	#const OFFSET_ROTATION = Vector3(0, deg_to_rad(180.0), 0)
+	
+	#if pickedUp:
+		#var parent_basis = get_parent().get_parent().global_transform.basis
+		#var offset_basis = Basis().from_euler(OFFSET_ROTATION)
+		
+		#self.global_transform.basis = parent_basis * offset_basis
+	
+	
+	const OFFSET_ROTATION = Vector3(deg_to_rad(45), deg_to_rad(-180), 0)
+	const OFFSET_POSITION = Vector3(0.0, -0.1, 0.0);
+
+
+	var parent_basis = get_parent().get_parent().global_transform.basis
+	var offset_basis = Basis().from_euler(OFFSET_ROTATION)
+
+	self.global_transform.basis = parent_basis * offset_basis
+	
+	self.global_position = get_parent().get_parent().global_position + OFFSET_POSITION
 
 func SetText(text):
 	print("trying to set text to", text)
 	popupText.text = text
 	popupText.visible = true
 	_popup_timer = 3;
+
+
+func _on_picked_up(pickable: Variant) -> void:
+	#const OFFSET_ROTATION = Vector3(0, deg_to_rad(180.0), 0)
+	
+	#self.global_rotation = get_parent().get_parent().global_rotation + OFFSET_ROTATION
+	
+	
+	pickedUp = true;

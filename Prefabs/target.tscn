@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvtwggt8hikfr"]
+
+[ext_resource type="Script" uid="uid://i5wyevm0ah12" path="res://Scripts/Target.gd" id="1_alb2w"]
+[ext_resource type="PackedScene" uid="uid://bkcabw3dsa5mp" path="res://Assets/targetA.glb" id="2_xg0fi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ys0u"]
+height = 0.2
+
+[node name="Target" type="CharacterBody3D" groups=["SHOOTABLE"]]
+transform = Transform3D(-25, 0, -2.18557e-06, 0, 25, 0, 2.18557e-06, 0, -25, 0, 0, 0)
+script = ExtResource("1_alb2w")
+
+[node name="targetA3" parent="." instance=ExtResource("2_xg0fi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.5299e-08, -0.35, 0, 0.35, -1.5299e-08, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("CylinderShape3D_7ys0u")

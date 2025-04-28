@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4amlles7yk87"]
+
+[ext_resource type="Script" uid="uid://w3jp8akihevq" path="res://Scripts/Level.gd" id="1_v81my"]
+
+[node name="Level1" type="Node" node_paths=PackedStringArray("targets")]
+script = ExtResource("1_v81my")
+targets = [NodePath(""), NodePath(""), NodePath("")]
+levelNum = 1

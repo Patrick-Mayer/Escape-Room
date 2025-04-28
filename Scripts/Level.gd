@@ -7,6 +7,7 @@ var complete: bool = false
 @export var target_order: bool = false #if it matters the order the targets are hit
 var target_index: int = 0 #for ordered mode
 var successful_hits = 0
+@export var levelNum : int;
 
 #when all targets are hit, the level is complete
 func _ready():
@@ -14,6 +15,8 @@ func _ready():
 	#for child in get_children():
 	#	if child.is_in_group("SHOOTABLE"):
 	#		targets.append(child)
+	
+	GameManager.levels[levelNum] = self;
 	for target_node in targets:
 		var target = target_node as Target;
 		if target != null:
