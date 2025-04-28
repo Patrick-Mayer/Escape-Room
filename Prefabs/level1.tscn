@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7j04v3xkpd8m"]
+
+[ext_resource type="Script" uid="uid://w3jp8akihevq" path="res://Scripts/Level.gd" id="1_0phyb"]
+[ext_resource type="PackedScene" uid="uid://dvtwggt8hikfr" path="res://Prefabs/target.tscn" id="2_ltupa"]
+
+[node name="TutorialLevel" type="Node" node_paths=PackedStringArray("targets")]
+script = ExtResource("1_0phyb")
+targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8"), NodePath("Target9"), NodePath("Target10"), NodePath("Target11"), NodePath("Target12"), NodePath("Target13")]
+levelNum = 1
+
+[node name="Target" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -30, 10, 36.7778)
+
+[node name="Target2" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 0, 10, 31.8678)
+
+[node name="Target3" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 30, 10, 55.4041)
+
+[node name="Target4" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 66.9742, 10, 39.3714)
+
+[node name="Target5" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 33.9032, 26.1234, 36.3377)
+
+[node name="Target6" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 11.6663, 15.1931, 48.152)
+
+[node name="Target7" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 50.3223, 36.4149, 30)
+
+[node name="Target8" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 50.4713, 10, 82.3165)
+
+[node name="Target9" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 43.1798, 10, 39.5715)
+
+[node name="Target10" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 62.5269, 9.72606, 64.021)
+
+[node name="Target11" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 77.3462, 10, 30)
+
+[node name="Target12" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 51.9827, 10, 30)
+
+[node name="Target13" parent="." instance=ExtResource("2_ltupa")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 24.7624, 10, 30)

@@ -21,7 +21,7 @@ static var gun: Node;
 static var nextLevelTargetPrefab : PackedScene = preload("res://Prefabs/NextLevelTarget.tscn");
 
 var tutorialLevel : PackedScene = preload("res://Prefabs/tutorialLevel.tscn");
-var level1 : PackedScene = null;
+var level1 : PackedScene = preload("res://Prefabs/level1.tscn");
 var level2 : PackedScene = null;
 
 
@@ -30,10 +30,12 @@ static var levels: Array[PackedScene] = [null, null, null];
 
 func _ready():
 	levels[0] = tutorialLevel;
+	levels[1] = level1;
+	levels[2] = level2;
 	#gun = get_tree().get_root().find_child("Pistol")
 
 static func complete_level():
-	lvl_current += 1
+	#lvl_current += 1
 	lvl_cleared += 1
 	#get_node("Pistol").SetText("You completed level soometying" + "!");
 
