@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c1nt5d31iq6nv"]
+[gd_scene load_steps=35 format=4 uid="uid://c1nt5d31iq6nv"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p444w"]
 [ext_resource type="Script" uid="uid://clbb5bijmg5uj" path="res://Scripts/Gun.gd" id="2_p0ord"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cc0opv1lf3dx" path="res://Scripts/ammo_bar.gd" id="14_6tltp"]
 [ext_resource type="AudioStream" uid="uid://m04ocfxc8qf6" path="res://Audio/SFX/DingSFX.mp3" id="15_ror0m"]
 [ext_resource type="AudioStream" uid="uid://d1rndw1kpb6we" path="res://Audio/Music/GameMusic.mp3" id="16_wayvj"]
+[ext_resource type="AudioStream" uid="uid://b3kq1cda6p0o8" path="res://Audio/Music/Kool & The Gang - Celebration (Official Music Video).mp3" id="17_yd4yx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr7up"]
 size = Vector3(0.244873, 1.48427, 2.10754)
@@ -263,7 +264,7 @@ albedo_color = Color(0.403415, 0.512139, 0.873002, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_6tltp"]
 size = Vector3(0.013, 0.003, 0.066)
 
-[node name="Pistol" node_paths=PackedStringArray("animator", "barrelRaycast", "shootSFX", "clickSFX", "beatLevelSFX", "dingSFX", "gameMusic") groups=["PISTOL"] instance=ExtResource("1_p444w")]
+[node name="Pistol" node_paths=PackedStringArray("animator", "barrelRaycast", "shootSFX", "clickSFX", "beatLevelSFX", "dingSFX", "gameMusic", "celebrateMusic") groups=["PISTOL"] instance=ExtResource("1_p444w")]
 script = ExtResource("2_p0ord")
 casingPrefab = ExtResource("3_klsyw")
 bulletPrefab = ExtResource("5_yexf5")
@@ -274,6 +275,7 @@ clickSFX = NodePath("BulletSpawn/EmptySFX")
 beatLevelSFX = NodePath("BeatLevelSFX")
 dingSFX = NodePath("DingSFX")
 gameMusic = NodePath("GameMusic")
+celebrateMusic = NodePath("CelebrateMusic")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000988768, 0.0717613, 0.0749573)
@@ -387,5 +389,8 @@ volume_db = -5.0
 [node name="GameMusic" type="AudioStreamPlayer" parent="." index="12"]
 stream = ExtResource("16_wayvj")
 volume_db = -13.0
+
+[node name="CelebrateMusic" type="AudioStreamPlayer" parent="." index="13"]
+stream = ExtResource("17_yd4yx")
 
 [editable path="Pistol"]

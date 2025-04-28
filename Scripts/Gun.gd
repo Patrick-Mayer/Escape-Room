@@ -19,7 +19,7 @@ class_name Gun
 @export var beatLevelSFX : AudioStreamPlayer;
 @export var dingSFX : AudioStreamPlayer;
 @export var gameMusic: AudioStreamPlayer;
-
+@export var celebrateMusic: AudioStreamPlayer;
 
 var interface : XRInterface;
 var currentMagazine : Magazine;
@@ -161,6 +161,9 @@ func PlayMusic():
 	
 func StopMusic():
 	gameMusic.stop();
+	
+func PlayCelebrateMusic():
+	celebrateMusic.play();
 
 func _on_picked_up(pickable: Variant) -> void:
 	#const OFFSET_ROTATION = Vector3(0, deg_to_rad(180.0), 0)

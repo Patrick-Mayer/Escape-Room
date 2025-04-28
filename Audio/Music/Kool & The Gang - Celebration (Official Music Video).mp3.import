@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3kq1cda6p0o8"
+path="res://.godot/imported/Kool & The Gang - Celebration (Official Music Video).mp3-5fb835b6eaa58cd76b67e28315f2be96.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Kool & The Gang - Celebration (Official Music Video).mp3"
+dest_files=["res://.godot/imported/Kool & The Gang - Celebration (Official Music Video).mp3-5fb835b6eaa58cd76b67e28315f2be96.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

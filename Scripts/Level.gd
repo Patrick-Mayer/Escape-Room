@@ -72,5 +72,7 @@ func _on_target_hit(target):
 			var nextLevelTargetInstance = nextLevelTarget.instantiate();
 			get_tree().get_root().add_child(nextLevelTargetInstance);
 		else:
+			GameManager.Get_Gun().PlayCelebrateMusic();
 			await get_tree().create_timer(5.0).timeout;
 			GameManager.Get_Gun().SetText("Congratulations, you beat the game!");
+			
