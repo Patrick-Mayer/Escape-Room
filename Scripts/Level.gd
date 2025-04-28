@@ -59,7 +59,7 @@ func _on_target_hit(target):
 		#GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
 		#good 'ole format specifiers
 		GameManager.Get_Gun().PlayBeatLevelSFX();
-		var accuracy : float = float(float(GameManager.hits) / float(GameManager.shots));
+		var accuracy : float = float(float(GameManager.hits) / float(GameManager.shots)) * 100;
 		GameManager.Get_Gun().SetText("You completed the level in %.2f seconds!" % GameManager.timer);
 		GameManager.Get_Gun().StopMusic();
 		await get_tree().create_timer(3.0).timeout;
@@ -75,4 +75,7 @@ func _on_target_hit(target):
 			GameManager.Get_Gun().PlayCelebrateMusic();
 			await get_tree().create_timer(5.0).timeout;
 			GameManager.Get_Gun().SetText("Congratulations, you beat the game!");
-			
+			await get_tree().create_timer(5.0).timeout;
+			GameManager.Get_Gun().SetText("You've collected % points!" % GameManager.score);
+			await get_tree().create_timer(5.0).timeout;
+			GameManager.Get_Gun().SetText("Time to party!");
