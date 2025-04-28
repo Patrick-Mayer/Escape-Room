@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7j04v3xkpd8m"]
+
+[ext_resource type="Script" uid="uid://w3jp8akihevq" path="res://Scripts/Level.gd" id="1_k0nk0"]
+[ext_resource type="PackedScene" uid="uid://dvtwggt8hikfr" path="res://Prefabs/target.tscn" id="2_2amu6"]
+
+[node name="Level2" type="Node" node_paths=PackedStringArray("targets")]
+script = ExtResource("1_k0nk0")
+targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8"), NodePath("Target9"), NodePath("Target10"), NodePath("Target11"), NodePath("Target12"), NodePath("Target13"), NodePath("Target14"), NodePath("Target15"), NodePath("Target16"), NodePath("Target17"), NodePath("Target18"), NodePath("Target19")]
+levelNum = 1
+
+[node name="Target" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -48.7299, 8.79682, 37.4977)
+isMoving = true
+
+[node name="Target2" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 0, 10, 31.8678)
+isMoving = true
+
+[node name="Target3" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 29.7824, 10, 55.4041)
+isMoving = true
+
+[node name="Target4" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -25.4236, 25.6035, 50.3452)
+isMoving = true
+
+[node name="Target5" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 17.3828, 26.1234, 36.3377)
+isMoving = true
+
+[node name="Target6" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 11.6663, 15.1931, 48.152)
+isMoving = true
+
+[node name="Target7" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -12.4324, 18.7174, 30)
+isMoving = true
+
+[node name="Target8" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 46.278, 10.8942, 82.7307)
+isMoving = true
+
+[node name="Target9" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 43.1798, 10, 39.5715)
+isMoving = true
+
+[node name="Target10" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -43.9961, 9.72606, 64.021)
+isMoving = true
+
+[node name="Target11" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -22.5141, 10, 30)
+isMoving = true
+
+[node name="Target12" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 46.8497, 10, 30)
+isMoving = true
+
+[node name="Target13" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 24.7624, 10, 30)
+isMoving = true
+
+[node name="Target14" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 35.4981, 18.05, 35.5625)
+isMoving = true
+
+[node name="Target15" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 50.3686, 23.2815, 39.0059)
+isMoving = true
+
+[node name="Target16" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -52.5564, 23.2815, 78.9529)
+isMoving = true
+
+[node name="Target17" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, -4.37568, 23.1727, 33.3643)
+isMoving = true
+
+[node name="Target18" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 43.9439, 42.8512, 36.683)
+isMoving = true
+
+[node name="Target19" parent="." instance=ExtResource("2_2amu6")]
+transform = Transform3D(-1.09278e-06, 0, 25, 0, 25, 0, -25, 0, -1.09278e-06, 13.7889, 38.8167, 50.616)
+isMoving = true

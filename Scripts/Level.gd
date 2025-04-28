@@ -23,6 +23,9 @@ func _ready():
 		var target = target_node as Target;
 		if target != null:
 			target.target_hit.connect(_on_target_hit)
+			
+func _process(delta: float) -> void:
+	GameManager.timer += delta;
 
 func _on_target_hit(target):
 	if complete:
@@ -53,8 +56,12 @@ func _on_target_hit(target):
 		GameManager.Get_Gun().SetText("You completed the level in " + str(GameMaster.timer) + " seconds!");
 		GameMaster.complete_level();
 		
-		if GameManager.lvl_current < 3:
+		if GameManager.lvl_current < 2:
 			await get_tree().create_timer(3.0).timeout;
 			var nextLevelTarget = GameManager.nextLevelTargetPrefab;
 			var nextLevelTargetInstance = nextLevelTarget.instantiate();
 			get_tree().get_root().add_child(nextLevelTargetInstance);
+		else:
+			GameManager.Get_Gun().SetText("Congratulations, you beat the game!");
+			await get_tree().create_timer(3.0).timeout;
+			GameManager.Get_Gun().SetText("Your time was " + str(GameMaster.timer));

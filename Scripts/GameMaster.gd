@@ -1,9 +1,7 @@
 #Last minute things to do:
-#1. Make level with more targets
 #2. Make level with moving targets (not circles though, that's an AL job if he wants to try and cram that in there last min)
-#3. Make Button (or something like that) that you shoot to start the next level
 #4. Timer functionality (although it may already be working in the code)
-#5. Make some balancing changes with ammoo (maybe double ammo and half regen rate)
+#5. Tutorial text over NextLevelTarget
 #6. Export project
 
 extends Node
@@ -22,7 +20,7 @@ static var nextLevelTargetPrefab : PackedScene = preload("res://Prefabs/NextLeve
 
 var tutorialLevel : PackedScene = preload("res://Prefabs/tutorialLevel.tscn");
 var level1 : PackedScene = preload("res://Prefabs/level1.tscn");
-var level2 : PackedScene = null;
+var level2 : PackedScene = preload("res://Prefabs/level2.tscn");
 
 
 #hardcoding it cause we have 1 day left
@@ -37,6 +35,7 @@ func _ready():
 static func complete_level():
 	#lvl_current += 1
 	lvl_cleared += 1
+	timer = 0;
 	#get_node("Pistol").SetText("You completed level soometying" + "!");
 
 static func Get_Gun():

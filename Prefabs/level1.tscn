@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7j04v3xkpd8m"]
+[gd_scene load_steps=3 format=3 uid="uid://dqfy8qktv8lbu"]
 
 [ext_resource type="Script" uid="uid://w3jp8akihevq" path="res://Scripts/Level.gd" id="1_0phyb"]
 [ext_resource type="PackedScene" uid="uid://dvtwggt8hikfr" path="res://Prefabs/target.tscn" id="2_ltupa"]
 
-[node name="TutorialLevel" type="Node" node_paths=PackedStringArray("targets")]
+[node name="Level1" type="Node" node_paths=PackedStringArray("targets")]
 script = ExtResource("1_0phyb")
 targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8"), NodePath("Target9"), NodePath("Target10"), NodePath("Target11"), NodePath("Target12"), NodePath("Target13")]
 levelNum = 1
