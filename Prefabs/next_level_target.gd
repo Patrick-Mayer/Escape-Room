@@ -13,4 +13,5 @@ func mark_hit():
 	GameManager.lvl_current += 1;
 	var nextLevelScene = GameManager.levels[GameManager.lvl_current];
 	var nextLevelInstance = nextLevelScene.instantiate();
+	nextLevelInstance.isActive = true;
 	get_tree().get_root().add_child(nextLevelInstance);

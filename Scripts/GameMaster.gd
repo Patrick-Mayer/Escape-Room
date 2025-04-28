@@ -2,13 +2,14 @@
 #2. Make level with moving targets (not circles though, that's an AL job if he wants to try and cram that in there last min)
 #4. Timer functionality (although it may already be working in the code)
 #5. Tutorial text over NextLevelTarget
-#6. Export project
+#6. Audiosource SFX for hitting target
+#7. Export project
 
 extends Node
 
 class_name GameMaster
 
-static var timer: int = 0
+static var timer: float = 0
 static var shots: int = 0
 static var hits: int = 0
 static var lvl_current: int = -1

@@ -7,6 +7,8 @@ var target_index: int = 0 #for ordered mode
 var successful_hits = 0
 @export var levelNum : int;
 
+var isActive : bool = false;
+
 #when all targets are hit, the level is complete
 func _ready():
 	#might want to change this to have better organization
@@ -25,7 +27,9 @@ func _ready():
 			target.target_hit.connect(_on_target_hit)
 			
 func _process(delta: float) -> void:
-	GameManager.timer += delta;
+	if isActive and !complete:
+		GameManager.timer += delta;
+		print("Timer: " + str(GameManager.timer));
 
 func _on_target_hit(target):
 	if complete:
@@ -53,7 +57,8 @@ func _on_target_hit(target):
 	if (target_order and target_index >= targets.size()) or (not target_order and successful_hits >= targets.size()):
 		complete = true
 		#GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
-		GameManager.Get_Gun().SetText("You completed the level in " + str(GameMaster.timer) + " seconds!");
+		#good 'ole format specifiers
+		GameManager.Get_Gun().SetText("You completed the level in %.2f seconds!" % GameManager.timer);
 		GameMaster.complete_level();
 		
 		if GameManager.lvl_current < 2:
@@ -62,6 +67,5 @@ func _on_target_hit(target):
 			var nextLevelTargetInstance = nextLevelTarget.instantiate();
 			get_tree().get_root().add_child(nextLevelTargetInstance);
 		else:
+			await get_tree().create_timer(5.0).timeout;
 			GameManager.Get_Gun().SetText("Congratulations, you beat the game!");
-			await get_tree().create_timer(3.0).timeout;
-			GameManager.Get_Gun().SetText("Your time was " + str(GameMaster.timer));
