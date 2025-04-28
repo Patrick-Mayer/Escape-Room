@@ -20,15 +20,19 @@ static var nextLevelTargetPrefab : PackedScene = preload("res://Prefabs/NextLeve
 var tutorialLevel : PackedScene = preload("res://Prefabs/tutorialLevel.tscn");
 var level1 : PackedScene = preload("res://Prefabs/level1.tscn");
 var level2 : PackedScene = preload("res://Prefabs/level2.tscn");
+var level3 : PackedScene = preload("res://Prefabs/level3.tscn");
+
 
 
 #hardcoding it cause we have 1 day left
-static var levels: Array[PackedScene] = [null, null, null];
+static var levels: Array[PackedScene] = [null, null, null, null];
 
 func _ready():
 	levels[0] = tutorialLevel;
 	levels[1] = level1;
 	levels[2] = level2;
+	levels[3] = level3;
+	
 	#gun = get_tree().get_root().find_child("Pistol")
 
 static func complete_level():

@@ -66,7 +66,7 @@ func _on_target_hit(target):
 		GameManager.Get_Gun().SetText("Your overall accuracy was %.2f%%" % accuracy)
 		GameMaster.complete_level();
 		
-		if GameManager.lvl_current < 2:
+		if GameManager.lvl_current < 3:
 			await get_tree().create_timer(3.0).timeout;
 			var nextLevelTarget = GameManager.nextLevelTargetPrefab;
 			var nextLevelTargetInstance = nextLevelTarget.instantiate();
