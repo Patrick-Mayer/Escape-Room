@@ -18,6 +18,7 @@ class_name Gun
 @export var clickSFX : AudioStreamPlayer3D;
 @export var beatLevelSFX : AudioStreamPlayer;
 @export var dingSFX : AudioStreamPlayer;
+@export var gameMusic: AudioStreamPlayer;
 
 
 var interface : XRInterface;
@@ -58,7 +59,7 @@ func Shoot():
 		interface.trigger_haptic_pulse("haptic", "right_hand", DEFAULT_FREQUENCY, amplitude, duration, durationDelay);
 		#interface.trigger_haptic_pulse("haptic", "right_hand", 300, 1, 0.2, 0);
 		
-
+		GameManager.shots += 1;
 		FireBullet();
 		shootSFX.play();
 		animator.play("Shoot");
@@ -154,12 +155,16 @@ func SetText(text):
 	
 func PlayBeatLevelSFX():
 	beatLevelSFX.play();
-
+	
+func PlayMusic():
+	gameMusic.play(24.34);
+	
+func StopMusic():
+	gameMusic.stop();
 
 func _on_picked_up(pickable: Variant) -> void:
 	#const OFFSET_ROTATION = Vector3(0, deg_to_rad(180.0), 0)
 	
 	#self.global_rotation = get_parent().get_parent().global_rotation + OFFSET_ROTATION
-	
 	
 	pickedUp = true;

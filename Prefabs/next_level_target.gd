@@ -15,3 +15,4 @@ func mark_hit():
 	var nextLevelInstance = nextLevelScene.instantiate();
 	nextLevelInstance.isActive = true;
 	get_tree().get_root().add_child(nextLevelInstance);
+	GameManager.Get_Gun().PlayMusic();

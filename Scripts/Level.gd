@@ -29,7 +29,7 @@ func _ready():
 func _process(delta: float) -> void:
 	if isActive and !complete:
 		GameManager.timer += delta;
-		print("Timer: " + str(GameManager.timer));
+		#print("Timer: " + str(GameManager.timer));
 
 func _on_target_hit(target):
 	if complete:
@@ -59,7 +59,11 @@ func _on_target_hit(target):
 		#GameManager.Get_Gun().SetText("You completed level" + str(GameMaster.lvl_current) + "!");
 		#good 'ole format specifiers
 		GameManager.Get_Gun().PlayBeatLevelSFX();
+		var accuracy : float = float(float(GameManager.hits) / float(GameManager.shots));
 		GameManager.Get_Gun().SetText("You completed the level in %.2f seconds!" % GameManager.timer);
+		GameManager.Get_Gun().StopMusic();
+		await get_tree().create_timer(3.0).timeout;
+		GameManager.Get_Gun().SetText("Your overall accuracy was %.2f%%" % accuracy)
 		GameMaster.complete_level();
 		
 		if GameManager.lvl_current < 2:

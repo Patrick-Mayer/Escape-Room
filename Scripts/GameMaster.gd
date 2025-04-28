@@ -35,6 +35,8 @@ static func complete_level():
 	#lvl_current += 1
 	lvl_cleared += 1
 	timer = 0;
+	shots = 0;
+	hits = 0;
 	#get_node("Pistol").SetText("You completed level soometying" + "!");
 
 static func Get_Gun():
